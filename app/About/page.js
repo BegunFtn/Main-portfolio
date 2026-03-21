@@ -56,8 +56,8 @@ export default function About() {
         }}
       />
 
-      <div className="relative z-10 flex flex-col xl:flex-row items-center xl:items-start gap-6 w-full max-w-[1150px]">
-        {/* ── LEFT: Hobbies — mobile-д доор, desktop-д зүүн ── */}
+      <div className="relative z-10 flex flex-col xl:flex-row items-center xl:items-start gap-6 w-full max-w-[1150px] pt-20">
+        {/* ── LEFT: Hobbies ── */}
         <div className="flex flex-col gap-4 w-full xl:w-[200px] xl:shrink-0 order-2 xl:order-1">
           <p
             className={`${bebas.className} text-2xl tracking-widest`}
@@ -115,7 +115,7 @@ export default function About() {
           </div>
         </div>
 
-        {/* ── CENTER — mobile-д эхэнд, desktop-д дунд ── */}
+        {/* ── CENTER ── */}
         <div className="flex flex-col items-center flex-1 w-full order-1 xl:order-2">
           <h1
             className={`${bebas.className} text-4xl md:text-5xl tracking-widest mb-5`}
@@ -161,7 +161,7 @@ export default function About() {
           </div>
         </div>
 
-        {/* ── RIGHT: More About Me — mobile-д доор, desktop-д баруун ── */}
+        {/* ── RIGHT: More About Me ── */}
         <div className="flex flex-col gap-5 w-full xl:w-[220px] xl:shrink-0 order-3 xl:order-3">
           <p
             className={`${bebas.className} text-2xl tracking-widest`}
