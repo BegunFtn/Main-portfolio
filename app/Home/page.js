@@ -15,7 +15,7 @@ const socials = [
     label: "Instagram",
   },
   {
-    href: "https://discord.com/users/begun4h",
+    href: "https://discord.gg/tmKJQ8An",
     img: "/discord.png",
     label: "Discord",
   },
