@@ -57,8 +57,66 @@ export default function About() {
       />
 
       <div className="relative z-10 flex flex-col xl:flex-row items-center xl:items-start gap-6 w-full max-w-[1150px]">
-        {/* ── CENTER — mobile-д эхэлж харагдана ── */}
-        <div className="flex flex-col items-center flex-1 w-full order-first xl:order-none">
+        {/* ── LEFT: Hobbies — mobile-д доор, desktop-д зүүн ── */}
+        <div className="flex flex-col gap-4 w-full xl:w-[200px] xl:shrink-0 order-2 xl:order-1">
+          <p
+            className={`${bebas.className} text-2xl tracking-widest`}
+            style={goldText}
+          >
+            Hobbies
+          </p>
+          <ul className="flex flex-col gap-2">
+            {hobbies.map(({ label, href }) => {
+              const inner = (
+                <li
+                  key={label}
+                  className={`${mono.className} text-sm flex items-center gap-2 transition-all duration-200 cursor-pointer group`}
+                  style={goldMuted}
+                >
+                  <span
+                    className="text-[10px] transition-colors duration-200"
+                    style={goldDim}
+                  >
+                    ◆
+                  </span>
+                  <span
+                    className="group-hover:translate-x-1 transition-all duration-200"
+                    style={goldMuted}
+                  >
+                    {label}
+                  </span>
+                </li>
+              );
+              return href ? (
+                <Link key={label} href={href}>
+                  {inner}
+                </Link>
+              ) : (
+                <span key={label}>{inner}</span>
+              );
+            })}
+          </ul>
+          <div
+            className="mt-2 p-3 rounded"
+            style={{
+              border: "1px solid rgba(255,200,50,0.15)",
+              background: "rgba(255,180,0,0.04)",
+            }}
+          >
+            <p className={`${mono.className} text-xs`} style={goldFaint}>
+              P.S.
+            </p>
+            <p
+              className={`${mono.className} text-xs mt-1`}
+              style={{ ...goldDim, lineHeight: 1.6 }}
+            >
+              Click a hobby to learn more!
+            </p>
+          </div>
+        </div>
+
+        {/* ── CENTER — mobile-д эхэнд, desktop-д дунд ── */}
+        <div className="flex flex-col items-center flex-1 w-full order-1 xl:order-2">
           <h1
             className={`${bebas.className} text-4xl md:text-5xl tracking-widest mb-5`}
             style={{ ...goldText, letterSpacing: "0.12em" }}
@@ -103,153 +161,92 @@ export default function About() {
           </div>
         </div>
 
-        {/* ── Hobbies + More About Me — mobile-д доор ── */}
-        <div className="flex flex-row xl:flex-col gap-6 w-full xl:w-[200px] xl:shrink-0 order-last xl:order-none">
-          {/* Hobbies */}
-          <div className="flex flex-col gap-4 flex-1 xl:flex-none">
+        {/* ── RIGHT: More About Me — mobile-д доор, desktop-д баруун ── */}
+        <div className="flex flex-col gap-5 w-full xl:w-[220px] xl:shrink-0 order-3 xl:order-3">
+          <p
+            className={`${bebas.className} text-2xl tracking-widest`}
+            style={goldText}
+          >
+            More About Me
+          </p>
+          <div>
             <p
-              className={`${bebas.className} text-2xl tracking-widest`}
-              style={goldText}
+              className={`${mono.className} text-xs tracking-[0.2em] mb-2`}
+              style={goldFaint}
             >
-              Hobbies
+              ACADEMY
             </p>
-            <ul className="flex flex-col gap-2">
-              {hobbies.map(({ label, href }) => {
-                const inner = (
-                  <li
-                    key={label}
-                    className={`${mono.className} text-sm flex items-center gap-2 transition-all duration-200 cursor-pointer group`}
-                    style={goldMuted}
-                  >
+            <Link href="https://www.erxes.io/" target="_blank">
+              <p
+                className={`${mono.className} text-sm flex items-center gap-2 transition-colors duration-200`}
+                style={goldMuted}
+              >
+                <span style={{ ...goldDim, fontSize: 10 }}>◆</span>
+                Erxes Academy
+              </p>
+            </Link>
+          </div>
+          <div>
+            <p
+              className={`${mono.className} text-xs tracking-[0.2em] mb-3`}
+              style={goldFaint}
+            >
+              CORE SKILLS
+            </p>
+            <div className="flex flex-col gap-3">
+              {skills.map(({ name, pct }) => (
+                <div key={name}>
+                  <div className="flex justify-between mb-1">
                     <span
-                      className="text-[10px] transition-colors duration-200"
-                      style={goldDim}
-                    >
-                      ◆
-                    </span>
-                    <span
-                      className="group-hover:translate-x-1 transition-all duration-200"
+                      className={`${mono.className} text-xs`}
                       style={goldMuted}
                     >
-                      {label}
+                      {name}
                     </span>
-                  </li>
-                );
-                return href ? (
-                  <Link key={label} href={href}>
-                    {inner}
-                  </Link>
-                ) : (
-                  <span key={label}>{inner}</span>
-                );
-              })}
-            </ul>
-            <div
-              className="mt-2 p-3 rounded"
-              style={{
-                border: "1px solid rgba(255,200,50,0.15)",
-                background: "rgba(255,180,0,0.04)",
-              }}
-            >
-              <p className={`${mono.className} text-xs`} style={goldFaint}>
-                P.S.
-              </p>
-              <p
-                className={`${mono.className} text-xs mt-1`}
-                style={{ ...goldDim, lineHeight: 1.6 }}
-              >
-                Click a hobby to learn more!
-              </p>
+                    <span
+                      className={`${mono.className} text-xs`}
+                      style={goldDim}
+                    >
+                      {pct}%
+                    </span>
+                  </div>
+                  <div
+                    className="h-[3px] w-full rounded-full"
+                    style={{ background: "rgba(255,180,0,0.1)" }}
+                  >
+                    <div
+                      className="h-full rounded-full"
+                      style={{
+                        width: `${pct}%`,
+                        background:
+                          "linear-gradient(to right, #7a4400, #ffb300)",
+                        boxShadow: "0 0 6px rgba(255,180,0,0.4)",
+                      }}
+                    />
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
-
-          {/* More About Me */}
-          <div className="flex flex-col gap-5 flex-1 xl:flex-none xl:w-[220px]">
+          <div>
             <p
-              className={`${bebas.className} text-2xl tracking-widest`}
-              style={goldText}
+              className={`${mono.className} text-xs tracking-[0.2em] mb-2`}
+              style={goldFaint}
             >
-              More About Me
+              CERTIFICATE
             </p>
-            <div>
-              <p
-                className={`${mono.className} text-xs tracking-[0.2em] mb-2`}
-                style={goldFaint}
-              >
-                ACADEMY
-              </p>
-              <Link href="https://www.erxes.io/" target="_blank">
-                <p
-                  className={`${mono.className} text-sm flex items-center gap-2 transition-colors duration-200`}
-                  style={goldMuted}
-                >
-                  <span style={{ ...goldDim, fontSize: 10 }}>◆</span>
-                  Erxes Academy
-                </p>
-              </Link>
-            </div>
-            <div>
-              <p
-                className={`${mono.className} text-xs tracking-[0.2em] mb-3`}
-                style={goldFaint}
-              >
-                CORE SKILLS
-              </p>
-              <div className="flex flex-col gap-3">
-                {skills.map(({ name, pct }) => (
-                  <div key={name}>
-                    <div className="flex justify-between mb-1">
-                      <span
-                        className={`${mono.className} text-xs`}
-                        style={goldMuted}
-                      >
-                        {name}
-                      </span>
-                      <span
-                        className={`${mono.className} text-xs`}
-                        style={goldDim}
-                      >
-                        {pct}%
-                      </span>
-                    </div>
-                    <div
-                      className="h-[3px] w-full rounded-full"
-                      style={{ background: "rgba(255,180,0,0.1)" }}
-                    >
-                      <div
-                        className="h-full rounded-full"
-                        style={{
-                          width: `${pct}%`,
-                          background:
-                            "linear-gradient(to right, #7a4400, #ffb300)",
-                          boxShadow: "0 0 6px rgba(255,180,0,0.4)",
-                        }}
-                      />
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-            <div>
-              <p
-                className={`${mono.className} text-xs tracking-[0.2em] mb-2`}
-                style={goldFaint}
-              >
-                CERTIFICATE
-              </p>
-              <Image
-                src="/certificate.jpg"
-                alt="Certificate"
-                width={200}
-                height={140}
-                className="rounded-lg cursor-pointer transition-all duration-200 hover:scale-105 w-full max-w-[200px]"
-                onClick={() => setCertOpen(true)}
-                style={{
-                  border: "1px solid rgba(255,200,50,0.3)",
-                  boxShadow: "0 0 16px rgba(255,180,0,0.15)",
-                }}
-              />
-            </div>
+            <Image
+              src="/certificate.jpg"
+              alt="Certificate"
+              width={200}
+              height={140}
+              className="rounded-lg cursor-pointer transition-all duration-200 hover:scale-105 w-full max-w-[200px]"
+              onClick={() => setCertOpen(true)}
+              style={{
+                border: "1px solid rgba(255,200,50,0.3)",
+                boxShadow: "0 0 16px rgba(255,180,0,0.15)",
+              }}
+            />
           </div>
         </div>
       </div>
