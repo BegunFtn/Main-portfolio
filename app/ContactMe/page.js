@@ -28,10 +28,10 @@ export default function ContactMe() {
 
     emailjs
       .sendForm(
-        "service_q2ktbq5", // ← Service ID оруул
-        "template_kwvejf3", // ← Template ID оруул
+        "service_q2ktbq5",
+        "template_kwvejf3",
         formRef.current,
-        "nbZdkxHB7yPqCAWJq", // ← Public Key оруул
+        "nbZdkxHB7yPqCAWJq",
       )
       .then(() => {
         setSent(true);
@@ -43,6 +43,13 @@ export default function ContactMe() {
         setLoading(false);
         alert("Алдаа гарлаа, дахин оролдоно уу.");
       });
+  };
+
+  const handleKeyDown = (e) => {
+    if (e.key === "Enter" && !e.shiftKey) {
+      e.preventDefault();
+      formRef.current.requestSubmit();
+    }
   };
 
   return (
@@ -222,6 +229,7 @@ export default function ContactMe() {
                 name="from_email"
                 placeholder="your@email.com"
                 required
+                onKeyDown={handleKeyDown}
                 className={`${mono.className} w-full text-sm px-4 py-2 rounded outline-none transition-all duration-200`}
                 style={{
                   background: "rgba(255,180,0,0.05)",
@@ -248,6 +256,7 @@ export default function ContactMe() {
                 name="from_name"
                 placeholder="Name"
                 required
+                onKeyDown={handleKeyDown}
                 className={`${mono.className} w-full text-sm px-4 py-2 rounded outline-none transition-all duration-200`}
                 style={{
                   background: "rgba(255,180,0,0.05)",
