@@ -28,6 +28,7 @@ export default function Header() {
             alt="Begun"
             width={150}
             height={90}
+            className="w-[100px] h-auto md:w-[150px]"
             style={{ filter: "drop-shadow(0 0 8px rgba(255,180,0,0.3))" }}
           />
         </Link>
