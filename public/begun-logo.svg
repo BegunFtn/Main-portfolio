@@ -1,0 +1,46 @@
+<svg width="200" height="120" viewBox="0 0 680 400" xmlns="http://www.w3.org/2000/svg">
+  <!-- Circuit nodes -->
+  <circle cx="90" cy="155" r="5" fill="none" stroke="white" stroke-width="1.5"/>
+  <circle cx="115" cy="140" r="3.5" fill="none" stroke="white" stroke-width="1.5"/>
+  <line x1="95" y1="155" x2="115" y2="155" stroke="white" stroke-width="1.5"/>
+  <line x1="115" y1="155" x2="115" y2="143" stroke="white" stroke-width="1.5"/>
+  <line x1="90" y1="150" x2="90" y2="130" stroke="white" stroke-width="1.5"/>
+  <line x1="90" y1="130" x2="130" y2="130" stroke="white" stroke-width="1.5"/>
+
+  <!-- Arc -->
+  <path d="M180 230 Q260 120 340 105 Q420 120 500 230" fill="none" stroke="white" stroke-width="3" stroke-linecap="round"/>
+
+  <!-- Car roof -->
+  <path d="M240 200 Q290 140 340 130 Q390 140 440 200" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round"/>
+
+  <!-- Window dividers -->
+  <line x1="310" y1="133" x2="295" y2="195" stroke="white" stroke-width="2"/>
+  <line x1="340" y1="130" x2="340" y2="195" stroke="white" stroke-width="2"/>
+  <line x1="370" y1="133" x2="385" y2="195" stroke="white" stroke-width="2"/>
+
+  <!-- Car body -->
+  <path d="M185 230 L495 230" stroke="white" stroke-width="2.5"/>
+  <path d="M200 230 Q240 215 280 210 L420 210 Q460 215 490 230" fill="none" stroke="white" stroke-width="1.8"/>
+
+  <!-- Lights -->
+  <polygon points="198,222 230,218 225,228 195,228" fill="white"/>
+  <polygon points="482,222 455,218 458,228 485,228" fill="white"/>
+
+  <!-- Wheel arches -->
+  <path d="M215 230 Q230 242 248 230" fill="none" stroke="white" stroke-width="2"/>
+  <path d="M432 230 Q450 242 465 230" fill="none" stroke="white" stroke-width="2"/>
+
+  <!-- Speed chevrons -->
+  <polygon points="250,270 340,255 430,270 410,285 340,275 270,285" fill="white"/>
+  <polygon points="285,290 340,280 395,290 380,305 340,298 300,305" fill="white" opacity="0.6"/>
+
+  <!-- BEGUN -->
+  <text x="340" y="252" text-anchor="middle" font-family="'Arial Black',sans-serif" font-size="72" font-weight="900" fill="white" letter-spacing="4" font-style="italic">BEGUN</text>
+
+  <!-- Side slash -->
+  <line x1="190" y1="196" x2="155" y2="260" stroke="white" stroke-width="3" stroke-linecap="round"/>
+  <line x1="196" y1="196" x2="162" y2="258" stroke="white" stroke-width="1.5" stroke-linecap="round" opacity="0.5"/>
+
+  <!-- GenZ -->
+  <text x="468" y="148" font-family="Arial,sans-serif" font-size="16" font-weight="700" fill="white" font-style="italic">GenZ</text>
+</svg>

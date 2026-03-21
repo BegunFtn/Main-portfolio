@@ -9,8 +9,12 @@
   },
   "dependencies": {
     "next": "16.1.6",
+    "ogl": "^1.0.11",
     "react": "19.2.3",
-    "react-dom": "19.2.3"
+    "react-dom": "19.2.3",
+    "swiper": "^12.1.2",
+    "three": "^0.183.2",
+    "vanta": "^0.5.24"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",
