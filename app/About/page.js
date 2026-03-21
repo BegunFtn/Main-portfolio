@@ -56,9 +56,9 @@ export default function About() {
         }}
       />
 
-      <div className="relative z-10 flex flex-col xl:flex-row items-center xl:items-start gap-6 w-full max-w-[1150px] pt-20">
+      <div className="relative z-10 flex flex-col xl:flex-row items-center xl:items-start gap-6 w-full max-w-[1150px] pt-10">
         {/* ── LEFT: Hobbies ── */}
-        <div className="flex flex-col gap-4 w-full xl:w-[200px] xl:shrink-0 order-2 xl:order-1">
+        <div className="flex flex-col gap-4 w-full xl:w-[200px] xl:shrink-0 order-2 xl:order-1 pt-20">
           <p
             className={`${bebas.className} text-2xl tracking-widest`}
             style={goldText}
@@ -162,7 +162,7 @@ export default function About() {
         </div>
 
         {/* ── RIGHT: More About Me ── */}
-        <div className="flex flex-col gap-5 w-full xl:w-[220px] xl:shrink-0 order-3 xl:order-3">
+        <div className="flex flex-col gap-5 w-full xl:w-[220px] xl:shrink-0 order-3 xl:order-3 pt-20">
           <p
             className={`${bebas.className} text-2xl tracking-widest`}
             style={goldText}
