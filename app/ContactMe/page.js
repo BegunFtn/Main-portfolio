@@ -4,7 +4,8 @@ import LuxuryRoyalBackground from "../components/Luxuryroyalbackground";
 import { Bebas_Neue, Share_Tech_Mono } from "next/font/google";
 import Link from "next/link";
 import Image from "next/image";
-import { useState } from "react";
+import { useState, useRef } from "react";
+import emailjs from "@emailjs/browser";
 
 const bebas = Bebas_Neue({ subsets: ["latin"], weight: "400" });
 const mono = Share_Tech_Mono({ subsets: ["latin"], weight: "400" });
@@ -18,18 +19,36 @@ const goldText = {
 
 export default function ContactMe() {
   const [sent, setSent] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const formRef = useRef();
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setSent(true);
-    setTimeout(() => setSent(false), 3000);
+    setLoading(true);
+
+    emailjs
+      .sendForm(
+        "service_q2ktbq5", // ← Service ID оруул
+        "template_kwvejf3", // ← Template ID оруул
+        formRef.current,
+        "nbZdkxHB7yPqCAWJq", // ← Public Key оруул
+      )
+      .then(() => {
+        setSent(true);
+        setLoading(false);
+        formRef.current.reset();
+        setTimeout(() => setSent(false), 3000);
+      })
+      .catch(() => {
+        setLoading(false);
+        alert("Алдаа гарлаа, дахин оролдоно уу.");
+      });
   };
 
   return (
     <main className="relative flex justify-center items-center min-h-screen overflow-hidden px-4 py-10 md:py-8">
       <LuxuryRoyalBackground />
 
-      {/* vignette */}
       <div
         className="absolute inset-0 z-[1] pointer-events-none"
         style={{
@@ -38,7 +57,6 @@ export default function ContactMe() {
         }}
       />
 
-      {/* Card */}
       <div
         className="relative z-10 flex flex-col md:flex-row justify-evenly items-center rounded-2xl w-full max-w-[980px] mt-8 gap-6 md:gap-0 px-4 py-8 md:px-0 md:py-0 md:h-auto xl:h-[620px]"
         style={{
@@ -48,7 +66,6 @@ export default function ContactMe() {
           boxShadow: "0 0 80px rgba(255,180,0,0.08)",
         }}
       >
-        {/* Corner accents */}
         <span className="absolute top-4 left-4 w-5 h-5 border-t border-l border-yellow-400/50" />
         <span className="absolute top-4 right-4 w-5 h-5 border-t border-r border-yellow-400/50" />
         <span className="absolute bottom-4 left-4 w-5 h-5 border-b border-l border-yellow-400/50" />
@@ -78,7 +95,6 @@ export default function ContactMe() {
             }}
           />
 
-          {/* Hello! top bar */}
           <div
             className="absolute top-0 left-0 right-0 flex justify-center items-center h-14"
             style={{
@@ -95,7 +111,6 @@ export default function ContactMe() {
             </h2>
           </div>
 
-          {/* Bottom info */}
           <div
             className="absolute bottom-0 left-0 right-0 flex flex-col gap-2 px-6 py-4"
             style={{
@@ -190,7 +205,11 @@ export default function ContactMe() {
             reality.
           </p>
 
-          <form onSubmit={handleSubmit} className="flex flex-col gap-3 mt-1">
+          <form
+            ref={formRef}
+            onSubmit={handleSubmit}
+            className="flex flex-col gap-3 mt-1"
+          >
             <div>
               <label
                 className={`${mono.className} text-xs tracking-[0.2em] block mb-1`}
@@ -200,6 +219,7 @@ export default function ContactMe() {
               </label>
               <input
                 type="email"
+                name="from_email"
                 placeholder="your@email.com"
                 required
                 className={`${mono.className} w-full text-sm px-4 py-2 rounded outline-none transition-all duration-200`}
@@ -225,6 +245,7 @@ export default function ContactMe() {
               </label>
               <input
                 type="text"
+                name="from_name"
                 placeholder="Name"
                 required
                 className={`${mono.className} w-full text-sm px-4 py-2 rounded outline-none transition-all duration-200`}
@@ -243,6 +264,7 @@ export default function ContactMe() {
             </div>
             <button
               type="submit"
+              disabled={loading}
               className={`${mono.className} text-sm tracking-[0.2em] uppercase py-2 mt-1 transition-all duration-300`}
               style={{
                 background: sent ? "rgba(255,180,0,0.2)" : "transparent",
@@ -250,19 +272,22 @@ export default function ContactMe() {
                 color: sent ? "#fff" : "#ffe082",
                 clipPath:
                   "polygon(8px 0%, 100% 0%, calc(100% - 8px) 100%, 0% 100%)",
+                opacity: loading ? 0.6 : 1,
               }}
               onMouseEnter={(e) => {
-                e.currentTarget.style.background = "rgba(255,180,0,0.15)";
-                e.currentTarget.style.color = "#fff";
+                if (!loading) {
+                  e.currentTarget.style.background = "rgba(255,180,0,0.15)";
+                  e.currentTarget.style.color = "#fff";
+                }
               }}
               onMouseLeave={(e) => {
-                if (!sent) {
+                if (!sent && !loading) {
                   e.currentTarget.style.background = "transparent";
                   e.currentTarget.style.color = "#ffe082";
                 }
               }}
             >
-              {sent ? "✓ Sent!" : "[ Send Message ]"}
+              {loading ? "Sending..." : sent ? "✓ Sent!" : "[ Send Message ]"}
             </button>
           </form>
         </div>
