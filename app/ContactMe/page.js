@@ -26,7 +26,7 @@ export default function ContactMe() {
   };
 
   return (
-    <main className="relative flex justify-center items-center min-h-screen overflow-hidden">
+    <main className="relative flex justify-center items-center min-h-screen overflow-hidden px-4 py-10 md:py-8">
       <LuxuryRoyalBackground />
 
       {/* vignette */}
@@ -40,7 +40,7 @@ export default function ContactMe() {
 
       {/* Card */}
       <div
-        className="relative z-10 flex justify-evenly items-center rounded-2xl xl:w-[980px] xl:h-[620px] mt-8"
+        className="relative z-10 flex flex-col md:flex-row justify-evenly items-center rounded-2xl w-full max-w-[980px] mt-8 gap-6 md:gap-0 px-4 py-8 md:px-0 md:py-0 md:h-auto xl:h-[620px]"
         style={{
           background: "rgba(0,0,0,0.55)",
           backdropFilter: "blur(8px)",
@@ -56,8 +56,9 @@ export default function ContactMe() {
 
         {/* ── LEFT: Photo card ── */}
         <div
-          className="relative w-[380px] h-[540px] rounded-2xl overflow-hidden shrink-0"
+          className="relative w-full max-w-[380px] shrink-0 rounded-2xl overflow-hidden"
           style={{
+            aspectRatio: "380 / 540",
             border: "1px solid rgba(255,200,50,0.2)",
             boxShadow: "0 0 40px rgba(255,180,0,0.12)",
           }}
@@ -66,7 +67,8 @@ export default function ContactMe() {
             src="/ya.png"
             alt="Contact"
             fill
-            style={{ objectFit: "cover" }}
+            sizes="(max-width: 768px) 100vw, 380px"
+            style={{ objectFit: "cover", objectPosition: "center top" }}
           />
           <div
             className="absolute inset-0"
@@ -155,7 +157,7 @@ export default function ContactMe() {
         </div>
 
         {/* ── RIGHT: Form ── */}
-        <div className="flex flex-col justify-center w-[460px] gap-4 px-2">
+        <div className="flex flex-col justify-center w-full max-w-[460px] gap-4 px-2">
           <div>
             <h1
               className={`${bebas.className} text-4xl tracking-widest`}

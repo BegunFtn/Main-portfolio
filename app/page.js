@@ -44,14 +44,15 @@ export default function IntroPage() {
     <main className="relative min-h-screen text-white overflow-hidden font-mono">
       <LuxuryRoyalBackground />
 
-      <div className="relative z-10 flex flex-col md:flex-row items-center justify-center min-h-screen px-6 md:px-20 gap-8 md:gap-16">
+      <div className="relative z-10 flex flex-col md:flex-row items-center justify-center min-h-screen px-6 md:px-20 gap-6 md:gap-16 py-12 md:py-0">
         {/* HI! */}
         <div className="flex-shrink-0 select-none">
           <span
-            className="text-[10rem] sm:text-[14rem] md:text-[20rem] font-black leading-none"
+            className="font-black leading-none"
             style={{
               fontFamily: "'Arial Black', sans-serif",
               letterSpacing: "-0.08em",
+              fontSize: "clamp(6rem, 25vw, 20rem)",
               background:
                 "linear-gradient(135deg, #fffde7 0%, #ffd700 50%, #b8860b 100%)",
               WebkitBackgroundClip: "text",
@@ -65,9 +66,9 @@ export default function IntroPage() {
         </div>
 
         {/* Text content */}
-        <div className="flex flex-col gap-3 max-w-lg">
+        <div className="flex flex-col gap-3 max-w-lg w-full text-center md:text-left">
           <h1
-            className="text-lg md:text-xl font-bold tracking-[0.3em] uppercase"
+            className="text-sm sm:text-base md:text-xl font-bold tracking-[0.2em] sm:tracking-[0.3em] uppercase"
             style={gold}
           >
             <Typewriter
@@ -78,7 +79,7 @@ export default function IntroPage() {
           </h1>
 
           <div
-            className="text-base md:text-lg leading-relaxed tracking-wide"
+            className="text-sm sm:text-base md:text-lg leading-relaxed tracking-wide"
             style={gold}
           >
             <Typewriter
@@ -89,7 +90,7 @@ export default function IntroPage() {
           </div>
 
           <div
-            className="text-base md:text-lg leading-relaxed tracking-wide"
+            className="text-sm sm:text-base md:text-lg leading-relaxed tracking-wide"
             style={gold}
           >
             <Typewriter
@@ -99,10 +100,10 @@ export default function IntroPage() {
             />
           </div>
 
-          <div className="mt-4">
+          <div className="mt-4 flex justify-center md:justify-start">
             <Link
               href="/Home"
-              className="inline-block px-8 py-3 tracking-[0.3em] uppercase text-sm font-bold transition-all duration-200 hover:scale-105"
+              className="inline-block px-6 sm:px-8 py-2.5 sm:py-3 tracking-[0.2em] sm:tracking-[0.3em] uppercase text-xs sm:text-sm font-bold transition-all duration-200 hover:scale-105 active:scale-95"
               style={{
                 border: "1px solid #ffd700",
                 color: "#ffd700",

@@ -23,7 +23,7 @@ const socials = [
 
 export default function Home() {
   return (
-    <main className="relative text-white flex items-center justify-center min-h-screen overflow-hidden">
+    <main className="relative text-white flex items-center justify-center min-h-screen overflow-hidden px-4 py-8 md:py-0">
       <LuxuryRoyalBackground />
 
       {/* Radial vignette */}
@@ -37,7 +37,7 @@ export default function Home() {
 
       {/* Card */}
       <div
-        className="relative z-10 flex flex-row items-stretch xl:w-[1150px] xl:h-[680px] rounded-2xl overflow-hidden mt-6"
+        className="relative z-10 flex flex-col-reverse md:flex-row items-center md:items-stretch w-full max-w-[1150px] md:h-auto xl:h-[680px] rounded-2xl overflow-hidden mt-4 md:mt-6"
         style={{
           background: "rgba(0,0,0,0.55)",
           backdropFilter: "blur(2px)",
@@ -52,17 +52,26 @@ export default function Home() {
         <span className="absolute bottom-4 left-4 w-6 h-6 border-b border-l border-yellow-400/60 z-20" />
         <span className="absolute bottom-4 right-4 w-6 h-6 border-b border-r border-yellow-400/60 z-20" />
 
-        {/* Vertical gold line divider */}
+        {/* Vertical gold line divider — desktop only */}
         <div
-          className="absolute left-[52%] top-12 bottom-12 w-px z-20"
+          className="hidden md:block absolute left-[52%] top-12 bottom-12 w-px z-20"
           style={{
             background:
               "linear-gradient(to bottom, transparent, rgba(255,200,50,0.3), transparent)",
           }}
         />
 
+        {/* Horizontal gold line divider — mobile only */}
+        <div
+          className="block md:hidden w-3/4 h-px mx-auto z-20"
+          style={{
+            background:
+              "linear-gradient(to right, transparent, rgba(255,200,50,0.3), transparent)",
+          }}
+        />
+
         {/* ── LEFT ── */}
-        <div className="relative z-10 flex flex-col justify-center pl-16 w-[52%] gap-3">
+        <div className="relative z-10 flex flex-col justify-center items-center md:items-start px-6 sm:px-10 md:pl-16 md:pr-4 w-full md:w-[52%] gap-3 py-8 md:py-0 text-center md:text-left">
           <p
             className={`${mono.className} text-xs tracking-[0.4em] uppercase`}
             style={{ color: "rgba(255,200,50,0.6)" }}
@@ -80,7 +89,7 @@ export default function Home() {
             <h1
               className={`${bebas.className} leading-none`}
               style={{
-                fontSize: "clamp(4rem, 7vw, 6.5rem)",
+                fontSize: "clamp(3.5rem, 10vw, 6.5rem)",
                 letterSpacing: "0.03em",
                 background:
                   "linear-gradient(135deg, #fffde7 0%, #ffe082 50%, #ffb300 100%)",
@@ -95,7 +104,7 @@ export default function Home() {
             </h1>
           </div>
 
-          <div className="flex items-center gap-2 mt-1">
+          <div className="flex items-center justify-center md:justify-start gap-2 mt-1">
             <span className="w-4 h-px" style={{ background: "#ffb300" }} />
             <p
               className={`${mono.className} text-sm`}
@@ -119,13 +128,13 @@ export default function Home() {
           </div>
 
           <div
-            className="w-20 h-px mt-2"
+            className="w-20 h-px mt-2 mx-auto md:mx-0"
             style={{
               background: "linear-gradient(to right, #ffb300, transparent)",
             }}
           />
 
-          <div className="flex items-center gap-4 mt-2">
+          <div className="flex items-center justify-center md:justify-start gap-4 mt-2">
             {socials.map(({ href, img, label }) => (
               <Link
                 key={label}
@@ -149,7 +158,7 @@ export default function Home() {
           <div className="mt-6">
             <Link href="/About">
               <button
-                className={`${mono.className} text-sm tracking-[0.2em] uppercase px-8 py-3 transition-all duration-300`}
+                className={`${mono.className} text-sm tracking-[0.2em] uppercase px-6 sm:px-8 py-3 transition-all duration-300`}
                 style={{
                   background: "transparent",
                   border: "1px solid rgba(255,180,0,0.5)",
@@ -178,12 +187,13 @@ export default function Home() {
         </div>
 
         {/* ── RIGHT — profile ── */}
-        <div className="relative z-10 flex items-end justify-center w-[48%]">
+        <div className="relative z-10 flex items-end justify-center w-full md:w-[48%]">
           <div
-            className="w-full h-[660px] bg-contain bg-bottom bg-no-repeat"
+            className="w-full bg-contain bg-bottom bg-no-repeat"
             style={{
               backgroundImage: "url('/profile.png')",
               filter: "drop-shadow(0 0 40px rgba(255,180,0,0.2))",
+              height: "clamp(220px, 45vw, 660px)",
             }}
           />
         </div>
