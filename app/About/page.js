@@ -125,7 +125,7 @@ export default function About() {
           </h1>
           <div className="relative w-full max-w-[520px]">
             <Image
-              src="/heyG.png"
+              src="/heyP.png"
               alt="Begun Khaesel"
               width={520}
               height={420}
