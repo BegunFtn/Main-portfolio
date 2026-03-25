@@ -5,6 +5,7 @@ import { Bebas_Neue, Share_Tech_Mono } from "next/font/google";
 import GameList from "../components/GameList";
 import GameMarquee from "../components/GameMarqee";
 import GameSlider from "../components/GameSlider";
+import GameArcadeModal from "../components/Gamearcademodal";
 import { useRouter } from "next/navigation";
 
 const bebas = Bebas_Neue({ subsets: ["latin"], weight: "400" });
@@ -77,6 +78,12 @@ export default function Gaming() {
         <div className="w-full">
           <GameList />
         </div>
+
+        {/* Royal Arcade — Play Games button */}
+        <div className="flex justify-center w-full">
+          <GameArcadeModal />
+        </div>
+
         <div className="w-full">
           <GameSlider />
         </div>

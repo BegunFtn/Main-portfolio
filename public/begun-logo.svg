@@ -1,46 +1,72 @@
-<svg width="200" height="120" viewBox="0 0 680 400" xmlns="http://www.w3.org/2000/svg">
+<svg width="280" height="180" viewBox="0 0 680 400" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="goldGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#FFE566" />
+      <stop offset="45%" style="stop-color:#FFD700" />
+      <stop offset="100%" style="stop-color:#B8860B" />
+    </linearGradient>
+
+    <filter id="glow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="4" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <filter id="softGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="10" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
   <!-- Circuit nodes -->
-  <circle cx="90" cy="155" r="5" fill="none" stroke="white" stroke-width="1.5"/>
-  <circle cx="115" cy="140" r="3.5" fill="none" stroke="white" stroke-width="1.5"/>
-  <line x1="95" y1="155" x2="115" y2="155" stroke="white" stroke-width="1.5"/>
-  <line x1="115" y1="155" x2="115" y2="143" stroke="white" stroke-width="1.5"/>
-  <line x1="90" y1="150" x2="90" y2="130" stroke="white" stroke-width="1.5"/>
-  <line x1="90" y1="130" x2="130" y2="130" stroke="white" stroke-width="1.5"/>
+  <g filter="url(#glow)">
+    <circle cx="90" cy="155" r="5" fill="none" stroke="#FFD700" stroke-width="1.5"/>
+    <circle cx="115" cy="140" r="3.5" fill="none" stroke="#FFD700" stroke-width="1.5"/>
+    <line x1="95" y1="155" x2="115" y2="155" stroke="#FFD700" stroke-width="1.5"/>
+    <line x1="115" y1="155" x2="115" y2="143" stroke="#FFD700" stroke-width="1.5"/>
+    <line x1="90" y1="150" x2="90" y2="130" stroke="#FFD700" stroke-width="1.5"/>
+    <line x1="90" y1="130" x2="130" y2="130" stroke="#FFD700" stroke-width="1.5"/>
+  </g>
 
   <!-- Arc -->
-  <path d="M180 230 Q260 120 340 105 Q420 120 500 230" fill="none" stroke="white" stroke-width="3" stroke-linecap="round"/>
+  <path d="M180 230 Q260 120 340 105 Q420 120 500 230" fill="none" stroke="#FFD700" stroke-width="3" stroke-linecap="round" filter="url(#glow)"/>
 
   <!-- Car roof -->
-  <path d="M240 200 Q290 140 340 130 Q390 140 440 200" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round"/>
+  <path d="M240 200 Q290 140 340 130 Q390 140 440 200" fill="none" stroke="#FFC200" stroke-width="2.5" stroke-linecap="round" filter="url(#glow)"/>
 
   <!-- Window dividers -->
-  <line x1="310" y1="133" x2="295" y2="195" stroke="white" stroke-width="2"/>
-  <line x1="340" y1="130" x2="340" y2="195" stroke="white" stroke-width="2"/>
-  <line x1="370" y1="133" x2="385" y2="195" stroke="white" stroke-width="2"/>
+  <line x1="310" y1="133" x2="295" y2="195" stroke="#FFD700" stroke-width="2" filter="url(#glow)"/>
+  <line x1="340" y1="130" x2="340" y2="195" stroke="#FFD700" stroke-width="2" filter="url(#glow)"/>
+  <line x1="370" y1="133" x2="385" y2="195" stroke="#FFD700" stroke-width="2" filter="url(#glow)"/>
 
   <!-- Car body -->
-  <path d="M185 230 L495 230" stroke="white" stroke-width="2.5"/>
-  <path d="M200 230 Q240 215 280 210 L420 210 Q460 215 490 230" fill="none" stroke="white" stroke-width="1.8"/>
+  <path d="M185 230 L495 230" stroke="#FFD700" stroke-width="2.5" filter="url(#glow)"/>
+  <path d="M200 230 Q240 215 280 210 L420 210 Q460 215 490 230" fill="none" stroke="#FFC200" stroke-width="1.8" filter="url(#glow)"/>
 
   <!-- Lights -->
-  <polygon points="198,222 230,218 225,228 195,228" fill="white"/>
-  <polygon points="482,222 455,218 458,228 485,228" fill="white"/>
+  <polygon points="198,222 230,218 225,228 195,228" fill="#FFE566" filter="url(#glow)"/>
+  <polygon points="482,222 455,218 458,228 485,228" fill="#FFE566" filter="url(#glow)"/>
 
   <!-- Wheel arches -->
-  <path d="M215 230 Q230 242 248 230" fill="none" stroke="white" stroke-width="2"/>
-  <path d="M432 230 Q450 242 465 230" fill="none" stroke="white" stroke-width="2"/>
+  <path d="M215 230 Q230 242 248 230" fill="none" stroke="#FFD700" stroke-width="2"/>
+  <path d="M432 230 Q450 242 465 230" fill="none" stroke="#FFD700" stroke-width="2"/>
 
   <!-- Speed chevrons -->
-  <polygon points="250,270 340,255 430,270 410,285 340,275 270,285" fill="white"/>
-  <polygon points="285,290 340,280 395,290 380,305 340,298 300,305" fill="white" opacity="0.6"/>
+  <polygon points="250,270 340,255 430,270 410,285 340,275 270,285" fill="#FFD700" filter="url(#glow)"/>
+  <polygon points="285,290 340,280 395,290 380,305 340,298 300,305" fill="#FFC200" opacity="0.65" filter="url(#glow)"/>
 
-  <!-- BEGUN -->
-  <text x="340" y="252" text-anchor="middle" font-family="'Arial Black',sans-serif" font-size="72" font-weight="900" fill="white" letter-spacing="4" font-style="italic">BEGUN</text>
+  <!-- BEGUN text -->
+  <text x="340" y="252" text-anchor="middle" font-family="'Arial Black',sans-serif" font-size="72" font-weight="900" fill="url(#goldGrad)" letter-spacing="4" font-style="italic" filter="url(#softGlow)">BEGUN</text>
 
   <!-- Side slash -->
-  <line x1="190" y1="196" x2="155" y2="260" stroke="white" stroke-width="3" stroke-linecap="round"/>
-  <line x1="196" y1="196" x2="162" y2="258" stroke="white" stroke-width="1.5" stroke-linecap="round" opacity="0.5"/>
+  <line x1="190" y1="196" x2="155" y2="260" stroke="#FFD700" stroke-width="3" stroke-linecap="round" filter="url(#glow)"/>
+  <line x1="196" y1="196" x2="162" y2="258" stroke="#FFC200" stroke-width="1.5" stroke-linecap="round" opacity="0.5"/>
 
   <!-- GenZ -->
-  <text x="468" y="148" font-family="Arial,sans-serif" font-size="16" font-weight="700" fill="white" font-style="italic">GenZ</text>
+  <text x="468" y="148" font-family="Arial,sans-serif" font-size="16" font-weight="700" fill="#FFD700" font-style="italic" filter="url(#glow)">GenZ</text>
 </svg>
