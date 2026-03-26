@@ -20,7 +20,7 @@ const projects = [
     name: "Portfolio Website",
     desc: "Personal portfolio built with Next.js and Tailwind CSS. Features luxury gold theme with animated backgrounds.",
     img: "/project1.png",
-    live: "https://begun-three.vercel.app",
+    live: null,
     github: null,
   },
   {
@@ -42,13 +42,13 @@ const projects = [
     desc: "A modern travel web application showcasing destinations around the world. Features country-based browsing, travel plans, and an engaging visual design.",
     img: "/project4.png",
     live: "https://begun-three.vercel.app",
-    github: "https://github.com/BegunFtn/begun",
+    github: null,
   },
   {
-    name: "Project Five",
-    desc: "A short description of what this project does and what technologies were used to build it.",
+    name: "Photography",
+    desc: "Create a stunning, modern portfolio with this clean and cinematic dark-style template. Designed for filmmakers, photographers, and creatives who want to showcase their work in a unique and interactive way.",
     img: "/project5.png",
-    live: null,
+    live: "https://photography-inky-eight.vercel.app",
     github: null,
   },
   {
