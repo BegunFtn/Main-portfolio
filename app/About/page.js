@@ -43,6 +43,12 @@ const goldFaint = { color: "rgba(255,200,50,0.5)" };
 
 export default function About() {
   const [certOpen, setCertOpen] = useState(false);
+  const [toast, setToast] = useState(null);
+
+  const showToast = (label) => {
+    setToast(label);
+    setTimeout(() => setToast(null), 3000);
+  };
 
   return (
     <main className="relative text-white flex items-center justify-center min-h-screen overflow-hidden px-4 py-10 md:py-8">
@@ -85,14 +91,25 @@ export default function About() {
                   >
                     {label}
                   </span>
+                  {!href && (
+                    <span
+                      className={`${mono.className} text-[9px] tracking-widest ml-auto`}
+                      style={{ color: "rgba(255,200,50,0.3)" }}
+                    >
+                      SOON
+                    </span>
+                  )}
                 </li>
               );
+
               return href ? (
                 <Link key={label} href={href}>
                   {inner}
                 </Link>
               ) : (
-                <span key={label}>{inner}</span>
+                <span key={label} onClick={() => showToast(label)}>
+                  {inner}
+                </span>
               );
             })}
           </ul>
@@ -251,7 +268,7 @@ export default function About() {
         </div>
       </div>
 
-      {/* Certificate modal */}
+      {/* ── Certificate modal ── */}
       {certOpen && (
         <div
           className="fixed inset-0 z-50 flex items-center justify-center p-4"
@@ -290,6 +307,32 @@ export default function About() {
               ✕
             </button>
           </div>
+        </div>
+      )}
+
+      {/* ── Coming Soon Toast ── */}
+      {toast && (
+        <div
+          className={`${mono.className} fixed top-6 left-1/2 -translate-x-1/2 z-50 flex items-center gap-3 px-5 py-3 rounded-lg text-sm pointer-events-none`}
+          style={{
+            background: "rgba(6,3,15,0.97)",
+            border: "1px solid rgba(255,200,50,0.4)",
+            boxShadow:
+              "0 0 40px rgba(255,180,0,0.25), 0 4px 24px rgba(0,0,0,0.6)",
+            color: "rgba(255,200,50,0.6)",
+            animation: "toastIn 0.25s ease",
+            whiteSpace: "nowrap",
+          }}
+        >
+          <span style={{ color: "rgba(255,200,50,0.4)", fontSize: 10 }}>◆</span>
+          <span style={{ color: "rgba(255,210,80,1)" }}>{toast}</span>
+          <span>— coming soon</span>
+          <style>{`
+            @keyframes toastIn {
+              from { opacity: 0; transform: translateX(-50%) translateY(-10px); }
+              to   { opacity: 1; transform: translateX(0) translateY(0); }
+            }
+          `}</style>
         </div>
       )}
     </main>
