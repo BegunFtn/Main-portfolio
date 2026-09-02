@@ -78,7 +78,6 @@ export default function ContactMe() {
         <span className="absolute bottom-4 left-4 w-5 h-5 border-b border-l border-yellow-400/50" />
         <span className="absolute bottom-4 right-4 w-5 h-5 border-b border-r border-yellow-400/50" />
 
-        {/* ── LEFT: Photo card ── */}
         <div
           className="relative w-full max-w-[380px] shrink-0 rounded-2xl overflow-hidden"
           style={{
@@ -178,7 +177,6 @@ export default function ContactMe() {
           </div>
         </div>
 
-        {/* ── RIGHT: Form ── */}
         <div className="flex flex-col justify-center w-full max-w-[460px] gap-4 px-2">
           <div>
             <h1
@@ -271,6 +269,28 @@ export default function ContactMe() {
                 }
               />
             </div>
+            <div>
+  <label
+    className={`${mono.className} text-xs tracking-[0.2em] block mb-1`}
+    style={{ color: "rgba(255,200,50,0.7)" }}
+  >
+    MESSAGE
+  </label>
+  <textarea
+    name="message"
+    placeholder="Text here..."
+    required
+    rows={4}
+    className={`${mono.className} w-full text-sm px-4 py-2 rounded outline-none transition-all duration-200 resize-none`}
+    style={{
+      background: "rgba(255,180,0,0.05)",
+      border: "1px solid rgba(255,200,50,0.2)",
+      color: "#ffe082",
+    }}
+    onFocus={(e) => (e.target.style.borderColor = "rgba(255,180,0,0.6)")}
+    onBlur={(e) => (e.target.style.borderColor = "rgba(255,200,50,0.2)")}
+  />
+</div>
             <button
               type="submit"
               disabled={loading}

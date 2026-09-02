@@ -52,10 +52,10 @@ const projects = [
     github: null,
   },
   {
-    name: "Project Six",
-    desc: "A short description of what this project does and what technologies were used to build it.",
+    name: "Handiv",
+    desc: "Handiv is a transparent crowdfunding platform that connects people who need support with those who want to make a difference. Every contribution helps turn compassion into real impact.",
     img: "/project6.png",
-    live: null,
+    live: "https://handiv.vercel.app/",
     github: null,
   },
 ];

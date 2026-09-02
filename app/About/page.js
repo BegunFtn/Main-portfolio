@@ -5,29 +5,30 @@ import { Bebas_Neue, Share_Tech_Mono } from "next/font/google";
 import Link from "next/link";
 import Image from "next/image";
 import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 
 const bebas = Bebas_Neue({ subsets: ["latin"], weight: "400" });
 const mono = Share_Tech_Mono({ subsets: ["latin"], weight: "400" });
 
 const hobbies = [
-  { label: "Coding", href: null },
-  { label: "Gaming", href: "/Gaming" },
-  { label: "Watching Anime", href: "/Anime" },
-  { label: "Traveling", href: null },
-  { label: "Cooking", href: null },
+  { label: "Code", href: "/Code" },
+  { label: "Game", href: "/Gaming" },
+  { label: "Anime", href: "/Anime" },
+  { label: "Travel", href: null },
+  { label: "Cook", href: null },
   { label: "Music", href: null },
   { label: "Sports", href: null },
   { label: "Riding a Bike", href: null },
 ];
 
 const skills = [
-  { name: "HTML", pct: 85 },
-  { name: "CSS", pct: 82 },
+  { name: "HTML", pct: 99 },
+  { name: "CSS", pct: 99 },
   { name: "Tailwind", pct: 75 },
-  { name: "JavaScript", pct: 70 },
-  { name: "React", pct: 68 },
-  { name: "Next.js", pct: 65 },
-  { name: "Git", pct: 72 },
+  { name: "JavaScript", pct: 80 },
+  { name: "React", pct: 70 },
+  { name: "Next.js", pct: 85 },
+  { name: "Git", pct: 80 },
 ];
 
 const goldText = {
@@ -193,7 +194,7 @@ export default function About() {
             >
               ACADEMY
             </p>
-            <Link href="https://www.erxes.io/" target="_blank">
+            <Link href="https://academy.erxes.mn/" target="_blank">
               <p
                 className={`${mono.className} text-sm flex items-center gap-2 transition-colors duration-200`}
                 style={goldMuted}
@@ -253,7 +254,7 @@ export default function About() {
               CERTIFICATE
             </p>
             <Image
-              src="/certificate.jpg"
+              src="/certificate.png"
               alt="Certificate"
               width={200}
               height={140}
@@ -269,46 +270,54 @@ export default function About() {
       </div>
 
       {/* ── Certificate modal ── */}
-      {certOpen && (
-        <div
-          className="fixed inset-0 z-50 flex items-center justify-center p-4"
-          style={{
-            background: "rgba(0,0,0,0.85)",
-            backdropFilter: "blur(6px)",
-          }}
+     <AnimatePresence>
+  {certOpen && (
+    <motion.div
+      className="fixed inset-0 z-50 flex items-center justify-center p-4"
+      style={{ background: "rgba(0,0,0,0.85)", backdropFilter: "blur(6px)" }}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 0.25 }}
+      onClick={() => setCertOpen(false)}
+    >
+     <motion.div
+  initial={{ scale: 0.5, opacity: 0, rotateY: 360 }}
+  animate={{ scale: 1, opacity: 1, rotateY: 0 }}
+  exit={{ scale: 0.5, opacity: 0, rotateY: 360 }}
+  transition={{ type: "spring", damping: 18, stiffness: 150 }}
+  style={{
+    border: "1px solid rgba(255,200,50,0.3)",
+    borderRadius: 12,
+    boxShadow: "0 0 60px rgba(255,180,0,0.2)",
+    perspective: 1000,
+  }}
+  className="relative w-full max-w-[800px]"
+  onClick={(e) => e.stopPropagation()}
+>
+        <Image
+          src="/certificate.png"
+          alt="Certificate"
+          width={800}
+          height={560}
+          className="rounded-xl w-full"
+          style={{ display: "block" }}
+        />
+        <button
           onClick={() => setCertOpen(false)}
+          className="absolute top-3 right-3 w-8 h-8 flex items-center justify-center rounded-full text-sm transition-all duration-200 hover:scale-110"
+          style={{
+            background: "rgba(255,180,0,0.15)",
+            border: "1px solid rgba(255,200,50,0.4)",
+            color: "#ffb300",
+          }}
         >
-          <div
-            className="relative w-full max-w-[800px]"
-            style={{
-              border: "1px solid rgba(255,200,50,0.3)",
-              borderRadius: 12,
-              boxShadow: "0 0 60px rgba(255,180,0,0.2)",
-            }}
-            onClick={(e) => e.stopPropagation()}
-          >
-            <Image
-              src="/certificate.jpg"
-              alt="Certificate"
-              width={800}
-              height={560}
-              className="rounded-xl w-full"
-              style={{ display: "block" }}
-            />
-            <button
-              onClick={() => setCertOpen(false)}
-              className="absolute top-3 right-3 w-8 h-8 flex items-center justify-center rounded-full text-sm transition-all duration-200 hover:scale-110"
-              style={{
-                background: "rgba(255,180,0,0.15)",
-                border: "1px solid rgba(255,200,50,0.4)",
-                color: "#ffb300",
-              }}
-            >
-              ✕
-            </button>
-          </div>
-        </div>
-      )}
+          ✕
+        </button>
+      </motion.div>
+    </motion.div>
+  )}
+</AnimatePresence>
 
       {/* ── Coming Soon Toast ── */}
       {toast && (
