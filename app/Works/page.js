@@ -45,13 +45,6 @@ const projects = [
     github: null,
   },
   {
-    name: "Photography",
-    desc: "Create a stunning, modern portfolio with this clean and cinematic dark-style template. Designed for filmmakers, photographers, and creatives who want to showcase their work in a unique and interactive way.",
-    img: "/project5.png",
-    live: "https://photography-inky-eight.vercel.app",
-    github: null,
-  },
-  {
     name: "Handiv",
     desc: "Handiv is a transparent crowdfunding platform that connects people who need support with those who want to make a difference. Every contribution helps turn compassion into real impact.",
     img: "/project6.png",
