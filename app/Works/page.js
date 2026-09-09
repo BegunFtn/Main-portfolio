@@ -34,7 +34,7 @@ const projects = [
     name: "Online Everything",
     desc: "A modern e-commerce web app with categorized product browsing, responsive search, and a functional shopping cart.",
     img: "/projectECOM.png",
-    live: "https://online-everything-s9yk.vercel.app",
+    live: "https://online-everything.vercel.app/",
     github: null,
   },
   {
