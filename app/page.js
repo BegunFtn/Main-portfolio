@@ -3,6 +3,8 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import LuxuryRoyalBackground from "./components/Luxuryroyalbackground";
+import MatrixRain from "./components/MatrixRain";
+
 
 function Typewriter({ text, speed = 40, delay = 0 }) {
   const [displayed, setDisplayed] = useState("");

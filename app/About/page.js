@@ -1,6 +1,7 @@
 "use client";
 
 import LuxuryRoyalBackground from "../components/Luxuryroyalbackground";
+import MatrixRain from "../components/MatrixRain";
 import { Bebas_Neue, Share_Tech_Mono } from "next/font/google";
 import Link from "next/link";
 import Image from "next/image";
@@ -22,13 +23,13 @@ const hobbies = [
 ];
 
 const skills = [
-  { name: "HTML", pct: 99 },
-  { name: "CSS", pct: 99 },
+  { name: "HTML", pct: 80 },
+  { name: "CSS", pct: 80 },
   { name: "Tailwind", pct: 75 },
   { name: "JavaScript", pct: 80 },
   { name: "React", pct: 70 },
-  { name: "Next.js", pct: 85 },
-  { name: "Git", pct: 80 },
+  { name: "Next.js", pct: 80 },
+  { name: "Git", pct: 90 },
 ];
 
 const goldText = {
@@ -53,7 +54,7 @@ export default function About() {
 
   return (
     <main className="relative text-white flex items-center justify-center min-h-screen overflow-hidden px-4 py-10 md:py-8">
-      <LuxuryRoyalBackground />
+      <LuxuryRoyalBackground/>
 
       <div
         className="absolute inset-0 z-[1] pointer-events-none"
