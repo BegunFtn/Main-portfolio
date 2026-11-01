@@ -1,6 +1,8 @@
 "use client";
 
-import LuxuryRoyalBackground from "../components/Luxuryroyalbackground";
+import { T } from "../components/i18n/LanguageProvider";
+
+import PortfolioBackground from "../components/backgrounds/PortfolioBackground";
 import { Bebas_Neue, Share_Tech_Mono } from "next/font/google";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
@@ -19,36 +21,43 @@ const projects = [
   {
     name: "Portfolio Website",
     desc: "Personal portfolio built with Next.js and Tailwind CSS. Features luxury gold theme with animated backgrounds.",
-    img: "/project1.png",
+    img: "/projects/portfolio.png",
     live: null,
     github: null,
   },
   {
     name: "Khaesel's Cast",
     desc: "A modern movie streaming web app with dynamic content, trending movies, powerful search, and an engaging hero banner. Built with a focus on performance and responsive design.",
-    img: "/projectMov.png",
+    img: "/projects/khaesel-cast.png",
     live: "https://khaesel-cast.vercel.app",
     github: null,
   },
   {
     name: "Online Everything",
     desc: "A modern e-commerce web app with categorized product browsing, responsive search, and a functional shopping cart.",
-    img: "/projectECOM.png",
+    img: "/projects/online-everything.png",
     live: "https://online-everything.vercel.app/",
     github: null,
   },
   {
     name: "Time To Travel",
     desc: "A modern travel web application showcasing destinations around the world. Features country-based browsing, travel plans, and an engaging visual design.",
-    img: "/project4.png",
+    img: "/projects/time-to-travel.png",
     live: "https://begun-three.vercel.app",
     github: null,
   },
   {
     name: "Handiv",
     desc: "Handiv is a transparent crowdfunding platform that connects people who need support with those who want to make a difference. Every contribution helps turn compassion into real impact.",
-    img: "/project6.png",
+    img: "/projects/handiv.png",
     live: "https://handiv.vercel.app/",
+    github: null,
+  },
+  {
+    name: "MolorTur",
+    desc: "MolorTur is a modern travel web application showcasing destinations around the world. Features country-based browsing, travel plans, and an engaging visual design.",
+    img: "/projects/molor-tur.png",
+    live: "https://ujin-seven.vercel.app/",
     github: null,
   },
 ];
@@ -57,8 +66,8 @@ export default function Works() {
   const router = useRouter();
 
   return (
-    <main className="relative flex flex-col items-center min-h-screen overflow-hidden">
-      <LuxuryRoyalBackground />
+    <main className="content-page works-page relative flex flex-col items-center min-h-screen overflow-hidden">
+      <PortfolioBackground />
 
       <div
         className="absolute inset-0 z-[1] pointer-events-none"
@@ -68,36 +77,30 @@ export default function Works() {
         }}
       />
 
-      <div className="relative z-10 flex flex-col items-center w-full max-w-[1250px] px-4 pt-28 pb-16 gap-10">
+      <div className="page-content relative z-10 flex flex-col items-center w-full max-w-[1250px] px-4 pt-28 pb-16 gap-10">
         {/* Back button */}
         <div className="w-full">
           <button
             onClick={() => router.back()}
-            className={`${mono.className} flex items-center gap-2 text-sm tracking-[0.15em] uppercase transition-all duration-200`}
+            className={`${mono.className} type-copy flex items-center gap-2 text-sm tracking-[0.15em] uppercase transition-all duration-200`}
             style={{ color: "rgba(255,200,50,0.5)" }}
             onMouseEnter={(e) => (e.currentTarget.style.color = "#ffb300")}
             onMouseLeave={(e) =>
               (e.currentTarget.style.color = "rgba(255,200,50,0.5)")
             }
-          >
-            ← Back
-          </button>
+          ><T>{"← Back"}</T></button>
         </div>
 
         {/* Title */}
-        <div className="flex flex-col items-center gap-2">
+        <div className="page-heading flex flex-col items-center gap-2">
           <p
-            className={`${mono.className} text-xs tracking-[0.4em] uppercase`}
+            className={`${mono.className} type-copy text-xs tracking-[0.4em] uppercase`}
             style={{ color: "rgba(255,200,50,0.5)" }}
-          >
-            // my projects
-          </p>
+          ><T>{"// my projects"}</T></p>
           <h1
-            className={`${bebas.className} text-7xl`}
+            className={`type-page-title ${bebas.className} type-heading text-7xl`}
             style={{ ...goldText, letterSpacing: "0.12em" }}
-          >
-            Works
-          </h1>
+          ><T>{"Works"}</T></h1>
           <div
             className="w-16 h-px"
             style={{
@@ -108,7 +111,7 @@ export default function Works() {
         </div>
 
         {/* Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 w-full">
+        <div className="works-grid grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 w-full">
           {projects.map((project, i) => (
             <div
               key={i}
@@ -129,7 +132,7 @@ export default function Works() {
               }}
             >
               {/* Image */}
-              <div className="relative overflow-hidden h-48">
+              <div className="work-preview relative overflow-hidden h-48">
                 <img
                   src={project.img}
                   alt={project.name}
@@ -147,17 +150,17 @@ export default function Works() {
               {/* Content */}
               <div className="flex flex-col gap-2 px-5 py-4 flex-1">
                 <p
-                  className={`${mono.className} text-xs tracking-[0.3em]`}
+                  className={`${mono.className} type-copy text-xs tracking-[0.3em]`}
                   style={{ color: "rgba(255,180,0,0.4)" }}
                 >
                   {String(i + 1).padStart(2, "0")}
                 </p>
 
                 <h2
-                  className={`${bebas.className} text-2xl tracking-wider`}
+                  className={`${bebas.className} type-heading text-2xl tracking-wider`}
                   style={goldText}
                 >
-                  {project.name}
+                  <T>{project.name}</T>
                 </h2>
 
                 <div
@@ -169,10 +172,10 @@ export default function Works() {
                 />
 
                 <p
-                  className={`${mono.className} text-xs leading-relaxed flex-1`}
+                  className={`${mono.className} type-copy text-xs leading-relaxed flex-1`}
                   style={{ color: "rgba(255,200,50,0.55)" }}
                 >
-                  {project.desc}
+                  <T>{project.desc}</T>
                 </p>
 
                 {/* Links */}
@@ -188,7 +191,7 @@ export default function Works() {
                         rel="noopener noreferrer"
                       >
                         <button
-                          className={`${mono.className} text-xs tracking-[0.15em] uppercase px-4 py-1.5 rounded transition-all duration-200`}
+                          className={`${mono.className} type-copy text-xs tracking-[0.15em] uppercase px-4 py-1.5 rounded transition-all duration-200`}
                           style={{
                             background: "rgba(255,180,0,0.1)",
                             border: "1px solid rgba(255,180,0,0.3)",
@@ -205,9 +208,7 @@ export default function Works() {
                             e.currentTarget.style.borderColor =
                               "rgba(255,180,0,0.3)";
                           }}
-                        >
-                          ↗ Live
-                        </button>
+                        ><T>{"↗ Live"}</T></button>
                       </Link>
                     )}
                     {project.github && (
@@ -217,7 +218,7 @@ export default function Works() {
                         rel="noopener noreferrer"
                       >
                         <button
-                          className={`${mono.className} text-xs tracking-[0.15em] uppercase px-4 py-1.5 rounded transition-all duration-200`}
+                          className={`${mono.className} type-copy text-xs tracking-[0.15em] uppercase px-4 py-1.5 rounded transition-all duration-200`}
                           style={{
                             background: "transparent",
                             border: "1px solid rgba(255,200,50,0.2)",

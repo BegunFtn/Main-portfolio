@@ -1,0 +1,82 @@
+.about-page {
+  --about-image-height: clamp(220px, calc(100svh - 390px), 400px);
+  display: block;
+  padding: 104px 24px 24px;
+}
+.about-layout { margin-inline: auto; padding-top: 0; gap: 28px; }
+.about-page .type-page-title,
+html[lang="mn"] .about-page .type-page-title {
+  display: grid;
+  place-items: center;
+  min-height: 52px;
+  font-size: 42px;
+  line-height: 1.15;
+  margin-bottom: 14px;
+}
+.about-page .type-heading:not(h1) { line-height: 1.2; font-size: 22px; }
+.about-page :is(li.type-copy, span.type-copy) { line-height: 1.5; }
+.about-page p.type-copy { line-height: 1.6; }
+.about-page p.type-copy.text-xs { font-size: 11px; }
+.about-profile-card { min-width: 0; }
+.about-profile-image { width: 100%; height: var(--about-image-height); object-fit: cover; object-position: center 32%; }
+.about-bio { padding: 12px 16px; }
+.about-page .about-bio p.type-copy { font-size: 13px; line-height: 1.55; text-align: start; overflow-wrap: break-word; }
+.about-hobbies, .about-details { min-width: 0; }
+.about-hobbies { gap: 12px; }
+.about-hobbies ul { gap: 6px; }
+.about-hobbies li { min-height: 25px; }
+.about-hobbies li.type-copy { font-size: 13px; }
+.about-note { margin-top: 6px; padding: 10px; }
+.about-details { gap: 12px; }
+.about-details p.type-copy { margin-bottom: 6px; }
+.about-details p.type-copy.text-sm { font-size: 13px; }
+.about-skills { gap: 8px; }
+.about-skill-label { margin-bottom: 3px; }
+.about-certificate { width: 150px; max-width: 100%; height: auto; }
+
+/* The photo gives up height before text, hobbies, skills or the certificate do. */
+@media (min-width: 1000px) {
+  .about-layout {
+    display: grid;
+    grid-template-columns: 180px minmax(0, 520px) 200px;
+    align-items: start;
+    justify-content: center;
+    max-width: 1120px;
+  }
+  .about-hobbies { grid-column: 1; grid-row: 1; order: initial; width: auto; padding-top: 66px; }
+  .about-center { grid-column: 2; grid-row: 1; order: initial; width: auto; }
+  .about-details { grid-column: 3; grid-row: 1; order: initial; width: auto; padding-top: 66px; }
+}
+@media (min-width: 1000px) and (max-height: 740px) {
+  .about-page { --about-image-height: clamp(170px, calc(100svh - 350px), 320px); padding-top: 96px; padding-bottom: 16px; }
+  .about-page .type-page-title,
+  html[lang="mn"] .about-page .type-page-title { min-height: 44px; font-size: 36px; margin-bottom: 12px; }
+  .about-hobbies, .about-details { padding-top: 56px; gap: 8px; }
+  .about-page .type-heading:not(h1) { font-size: 20px; }
+  .about-hobbies ul { gap: 4px; }
+  .about-hobbies li { min-height: 23px; }
+  .about-skills { gap: 5px; }
+  .about-skill-label { margin-bottom: 2px; }
+  .about-certificate { width: 124px; }
+  .about-page .about-bio p.type-copy { font-size: 12px; line-height: 1.5; }
+  .about-note { padding: 8px; }
+}
+@media (min-width: 640px) and (max-width: 999px) {
+  .about-page { --about-image-height: 340px; padding-top: 100px; }
+  .about-layout { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); align-items: start; max-width: 680px; gap: 28px 36px; }
+  .about-center { grid-column: 1 / -1; grid-row: 1; order: initial; }
+  .about-hobbies { grid-column: 1; grid-row: 2; order: initial; padding-top: 0; }
+  .about-details { grid-column: 2; grid-row: 2; order: initial; padding-top: 0; }
+}
+@media (max-width: 639px) {
+  .about-page { --about-image-height: clamp(240px, 75vw, 360px); padding: 94px 20px 32px; }
+  .about-layout { max-width: 440px; gap: 28px; }
+  .about-page .type-page-title,
+  html[lang="mn"] .about-page .type-page-title { min-height: 44px; font-size: 34px; margin-bottom: 16px; }
+  .about-hobbies, .about-details { padding-top: 0; }
+  .about-hobbies li { min-height: 36px; }
+  .about-bio { padding: 14px; }
+  .about-page .about-bio p.type-copy { font-size: 12px; line-height: 1.65; }
+  .about-skills { gap: 10px; }
+  .about-certificate { width: 170px; }
+}

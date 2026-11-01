@@ -1,30 +1,32 @@
 "use client";
 
+import { T } from "../components/i18n/LanguageProvider";
+
 import { Bebas_Neue, Share_Tech_Mono } from "next/font/google";
 import Link from "next/link";
-import LuxuryRoyalBackground from "../components/Luxuryroyalbackground";
+import PortfolioBackground from "../components/backgrounds/PortfolioBackground";
 
 const bebas = Bebas_Neue({ subsets: ["latin"], weight: "400" });
 const mono = Share_Tech_Mono({ subsets: ["latin"], weight: "400" });
 
 const socials = [
-  { href: "https://github.com/BegunFtn", img: "/github.png", label: "GitHub" },
+  { href: "https://github.com/BegunFtn", img: "/social/github.png", label: "GitHub" },
   {
     href: "https://www.instagram.com/begun4h/",
-    img: "/instagram.png",
+    img: "/social/instagram.png",
     label: "Instagram",
   },
   {
     href: "https://discord.gg/tmKJQ8An",
-    img: "/discord.png",
+    img: "/social/discord.png",
     label: "Discord",
   },
 ];
 
 export default function Home() {
   return (
-    <main className="relative text-white flex items-center justify-center min-h-screen overflow-hidden px-4 py-8 md:py-0">
-      <LuxuryRoyalBackground />
+    <main className="home-page relative text-white min-h-screen overflow-hidden">
+      <PortfolioBackground />
 
       {/* Radial vignette */}
       <div
@@ -37,7 +39,7 @@ export default function Home() {
 
       {/* Card */}
       <div
-        className="relative z-10 flex flex-col-reverse md:flex-row items-center md:items-stretch w-full max-w-[1150px] md:h-auto xl:h-[680px] rounded-2xl overflow-hidden mt-4 md:mt-6"
+        className="home-card relative z-10 rounded-2xl overflow-hidden"
         style={{
           background: "rgba(0,0,0,0.55)",
           backdropFilter: "blur(2px)",
@@ -52,44 +54,23 @@ export default function Home() {
         <span className="absolute bottom-4 left-4 w-6 h-6 border-b border-l border-yellow-400/60 z-20" />
         <span className="absolute bottom-4 right-4 w-6 h-6 border-b border-r border-yellow-400/60 z-20" />
 
-        {/* Vertical gold line divider — desktop only */}
-        <div
-          className="hidden md:block absolute left-[52%] top-12 bottom-12 w-px z-20"
-          style={{
-            background:
-              "linear-gradient(to bottom, transparent, rgba(255,200,50,0.3), transparent)",
-          }}
-        />
-
-        {/* Horizontal gold line divider — mobile only */}
-        <div
-          className="block md:hidden w-3/4 h-px mx-auto z-20"
-          style={{
-            background:
-              "linear-gradient(to right, transparent, rgba(255,200,50,0.3), transparent)",
-          }}
-        />
+        <div className="home-divider" aria-hidden="true" />
 
         {/* ── LEFT ── */}
-        <div className="relative z-10 flex flex-col justify-center items-center md:items-start px-6 sm:px-10 md:pl-16 md:pr-4 w-full md:w-[52%] gap-3 py-8 md:py-0 text-center md:text-left">
+        <div className="home-copy relative z-10">
           <p
-            className={`${mono.className} text-xs tracking-[0.4em] uppercase`}
+            className={`${mono.className} type-copy text-xs tracking-[0.4em] uppercase`}
             style={{ color: "rgba(255,200,50,0.6)" }}
-          >
-            // front-end developer
-          </p>
+          ><T>{"// front-end developer"}</T></p>
 
           <div>
             <p
-              className={`${mono.className} text-base`}
+              className={`${mono.className} type-copy text-base`}
               style={{ color: "rgba(255,255,255,0.5)", letterSpacing: "0.1em" }}
-            >
-              Hi, I&apos;m
-            </p>
+            ><T>{"Hi! I'm"}</T></p>
             <h1
-              className={`${bebas.className} leading-none`}
+              className={`${bebas.className} type-heading profile-name leading-none`}
               style={{
-                fontSize: "clamp(3.5rem, 10vw, 6.5rem)",
                 letterSpacing: "0.03em",
                 background:
                   "linear-gradient(135deg, #fffde7 0%, #ffe082 50%, #ffb300 100%)",
@@ -97,27 +78,21 @@ export default function Home() {
                 WebkitTextFillColor: "transparent",
                 filter: "drop-shadow(0 0 30px rgba(255,180,0,0.4))",
               }}
-            >
-              Begun
-              <br />
-              Khaesel
-            </h1>
+            ><T>{"Begun"}</T><br /><T>{"Ganbold"}</T></h1>
           </div>
 
           <div className="flex items-center justify-center md:justify-start gap-2 mt-1">
             <span className="w-4 h-px" style={{ background: "#ffb300" }} />
             <p
-              className={`${mono.className} text-sm`}
+              className={`${mono.className} type-copy text-sm`}
               style={{
                 color: "rgba(255,220,100,0.8)",
                 letterSpacing: "0.12em",
               }}
-            >
-              UI Designer
-            </p>
+            ><T>{"UI Designer"}</T></p>
             <span className="w-1 h-1 rounded-full bg-yellow-500/60" />
             <p
-              className={`${mono.className} text-sm`}
+              className={`${mono.className} type-copy text-sm`}
               style={{
                 color: "rgba(255,220,100,0.8)",
                 letterSpacing: "0.12em",
@@ -155,16 +130,17 @@ export default function Home() {
             ))}
           </div>
 
-          <div className="mt-6">
+          <div className="home-cta mt-6">
             <Link href="/About">
               <button
-                className={`${mono.className} text-sm tracking-[0.2em] uppercase px-6 sm:px-8 py-3 transition-all duration-300`}
+                className={`${mono.className} type-copy text-sm tracking-[0.2em] uppercase px-6 sm:px-8 py-3 transition-all duration-300`}
                 style={{
                   background: "transparent",
                   border: "1px solid rgba(255,180,0,0.5)",
                   color: "#ffe082",
                   clipPath:
                     "polygon(8px 0%, 100% 0%, calc(100% - 8px) 100%, 0% 100%)",
+                    cursor: "pointer",
                 }}
                 onMouseEnter={(e) => {
                   e.currentTarget.style.background = "rgba(255,180,0,0.15)";
@@ -179,21 +155,18 @@ export default function Home() {
                   e.currentTarget.style.color = "#ffe082";
                   e.currentTarget.style.boxShadow = "none";
                 }}
-              >
-                View About Me →
-              </button>
+              ><T>{"View About Me →"}</T></button>
             </Link>
           </div>
         </div>
 
         {/* ── RIGHT — profile ── */}
-        <div className="relative z-10 flex items-end justify-center w-full md:w-[48%]">
+        <div className="home-portrait relative z-10">
           <div
-            className="w-full bg-contain bg-bottom bg-no-repeat"
+            className="home-portrait-image w-full bg-contain bg-bottom bg-no-repeat"
             style={{
-              backgroundImage: "url('/profile.png')",
+              backgroundImage: "url('/portraits/home-portrait.png')",
               filter: "drop-shadow(0 0 40px rgba(255,180,0,0.2))",
-              height: "clamp(220px, 45vw, 660px)",
             }}
           />
         </div>

@@ -1,8 +1,10 @@
 "use client";
 
-import MatrixRain from "../components/MatrixRain";
+import { T } from "../components/i18n/LanguageProvider";
+
+import MatrixRain from "../components/backgrounds/MatrixRain";
 import { Bebas_Neue, Share_Tech_Mono } from "next/font/google";
-import CodeArcadeModal from "../components/Gamearcademodal";
+import ArcadeModal from "../components/arcade/ArcadeModal";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 
@@ -51,7 +53,7 @@ export default function CodePage() {
   const router = useRouter();
 
   return (
-    <main className="relative flex flex-col items-center min-h-screen overflow-hidden">
+    <main className="content-page code-page relative flex flex-col items-center min-h-screen overflow-hidden">
       {/* Gold Matrix Rain background */}
       <MatrixRain />
 
@@ -64,35 +66,29 @@ export default function CodePage() {
         }}
       />
 
-      <div className="relative z-10 flex flex-col items-center w-full max-w-[1250px] px-4 pt-28 pb-16 gap-12">
+      <div className="page-content relative z-10 flex flex-col items-center w-full max-w-[1250px] px-4 pt-28 pb-16 gap-12">
 
         {/* Back button */}
         <div className="w-full">
           <button
             onClick={() => router.back()}
-            className={`${mono.className} flex items-center gap-2 text-sm tracking-[0.15em] uppercase transition-all duration-200`}
+            className={`${mono.className} type-copy flex items-center gap-2 text-sm tracking-[0.15em] uppercase transition-all duration-200`}
             style={{ color: "rgba(255,200,50,0.5)" }}
             onMouseEnter={(e) => (e.currentTarget.style.color = "#ffb300")}
             onMouseLeave={(e) => (e.currentTarget.style.color = "rgba(255,200,50,0.5)")}
-          >
-            ← Back
-          </button>
+          ><T>{"← Back"}</T></button>
         </div>
 
         {/* Hero / Title */}
-        <div className="flex flex-col items-center gap-3">
+        <div className="page-heading flex flex-col items-center gap-3">
           <p
-            className={`${mono.className} text-xs tracking-[0.4em] uppercase`}
+            className={`${mono.className} type-copy text-xs tracking-[0.4em] uppercase`}
             style={{ color: "rgba(255,200,50,0.5)" }}
-          >
-            // hobby
-          </p>
+          ><T>{"// hobby"}</T></p>
           <h1
-            className={`${bebas.className} text-7xl tracking-widest`}
+            className={`type-page-title ${bebas.className} type-heading text-7xl tracking-widest`}
             style={{ ...goldText, letterSpacing: "0.12em" }}
-          >
-            Code
-          </h1>
+          ><T>{"Code"}</T></h1>
           <div
             className="w-16 h-px"
             style={{
@@ -100,15 +96,13 @@ export default function CodePage() {
             }}
           />
           <p
-            className={`${mono.className} text-sm tracking-widest mt-1`}
+            className={`${mono.className} type-copy text-sm tracking-widest mt-1`}
             style={{ color: "rgba(255,200,50,0.55)" }}
-          >
-            Coding is my passion.
-          </p>
+          ><T>{"Coding is my passion."}</T></p>
         </div>
 
         {/* Projects grid */}
-        <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-5">
+        <div className="code-grid w-full grid grid-cols-1 md:grid-cols-2 gap-5">
           {projects.map((p) => (
             <div
               key={p.title}
@@ -132,13 +126,13 @@ export default function CodePage() {
 
               <div className="flex items-center gap-3">
                 <span
-                  className={`${mono.className} text-2xl`}
+                  className={`${mono.className} type-copy text-2xl`}
                   style={{ color: p.color, filter: `drop-shadow(0 0 8px ${p.color}88)` }}
                 >
                   {p.icon}
                 </span>
                 <h2
-                  className={`${bebas.className} text-2xl tracking-widest`}
+                  className={`${bebas.className} type-heading text-2xl tracking-widest`}
                   style={{ color: p.color, letterSpacing: "0.1em" }}
                 >
                   {p.title}
@@ -148,10 +142,10 @@ export default function CodePage() {
 
               {/* Description */}
               <p
-                className={`${mono.className} text-xs leading-relaxed`}
+                className={`${mono.className} type-copy text-xs leading-relaxed`}
                 style={{ color: "rgba(255,220,130,0.5)" }}
               >
-                {p.desc}
+                <T>{p.desc}</T>
               </p>
 
               {/* Tags */}
@@ -159,14 +153,14 @@ export default function CodePage() {
                 {p.tags.map((tag) => (
                   <span
                     key={tag}
-                    className={`${mono.className} text-[10px] px-2 py-0.5 tracking-widest`}
+                    className={`${mono.className} type-copy text-[10px] px-2 py-0.5 tracking-widest`}
                     style={{
                       border: `1px solid ${p.color}44`,
                       color: `${p.color}cc`,
                       background: `${p.color}0a`,
                     }}
                   >
-                    {tag}
+                    <T>{tag}</T>
                   </span>
                 ))}
               </div>
@@ -182,7 +176,7 @@ export default function CodePage() {
 
         {/* Code Arcade button */}
         <div className="flex justify-center w-full">
-          <CodeArcadeModal />
+          <ArcadeModal />
         </div>
 
       </div>

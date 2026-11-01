@@ -1,6 +1,8 @@
 "use client";
 
-import LuxuryRoyalBackground from "../components/Luxuryroyalbackground";
+import { T } from "../components/i18n/LanguageProvider";
+
+import PortfolioBackground from "../components/backgrounds/PortfolioBackground";
 import { Bebas_Neue, Share_Tech_Mono } from "next/font/google";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
@@ -52,8 +54,8 @@ export default function Vlog() {
     activeTag === "All" ? posts : posts.filter((p) => p.tag === activeTag);
 
   return (
-    <main className="relative flex flex-col items-center min-h-screen overflow-hidden">
-      <LuxuryRoyalBackground />
+    <main className="content-page vlog-page relative flex flex-col items-center min-h-screen overflow-hidden">
+      <PortfolioBackground />
 
       <div
         className="absolute inset-0 z-[1] pointer-events-none"
@@ -63,34 +65,28 @@ export default function Vlog() {
         }}
       />
 
-      <div className="relative z-10 flex flex-col items-center w-full max-w-[1150px] px-4 pt-28 pb-16 gap-12">
+      <div className="page-content relative z-10 flex flex-col items-center w-full max-w-[1150px] px-4 pt-28 pb-16 gap-12">
         <div className="w-full">
           <button
             onClick={() => router.back()}
-            className={`${mono.className} flex items-center gap-2 text-sm tracking-[0.15em] uppercase transition-all duration-200`}
+            className={`${mono.className} type-copy flex items-center gap-2 text-sm tracking-[0.15em] uppercase transition-all duration-200`}
             style={{ color: "rgba(255,200,50,0.5)" }}
             onMouseEnter={(e) => (e.currentTarget.style.color = "#ffb300")}
             onMouseLeave={(e) =>
               (e.currentTarget.style.color = "rgba(255,200,50,0.5)")
             }
-          >
-            ← Back
-          </button>
+          ><T>{"← Back"}</T></button>
         </div>
 
-        <div className="flex flex-col items-center gap-2">
+        <div className="page-heading flex flex-col items-center gap-2">
           <p
-            className={`${mono.className} text-xs tracking-[0.4em] uppercase`}
+            className={`${mono.className} type-copy text-xs tracking-[0.4em] uppercase`}
             style={{ color: "rgba(255,200,50,0.5)" }}
-          >
-            // my life
-          </p>
+          ><T>{"// my life"}</T></p>
           <h1
-            className={`${bebas.className} text-7xl`}
+            className={`type-page-title ${bebas.className} type-heading text-7xl`}
             style={{ ...goldText, letterSpacing: "0.12em" }}
-          >
-            Vlog
-          </h1>
+          ><T>{"Vlog"}</T></h1>
           <div
             className="w-16 h-px"
             style={{
@@ -103,12 +99,10 @@ export default function Vlog() {
         {/* VIDEOS */}
         <div className="w-full flex flex-col gap-6">
           <p
-            className={`${mono.className} text-xs tracking-[0.3em] uppercase`}
+            className={`${mono.className} type-copy text-xs tracking-[0.3em] uppercase`}
             style={{ color: "rgba(255,200,50,0.5)" }}
-          >
-            // videos
-          </p>
-          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
+          ><T>{"// videos"}</T></p>
+          <div className="vlog-grid grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
             {videos.map((v, i) => (
               <div
                 key={i}
@@ -132,13 +126,13 @@ export default function Vlog() {
                 </div>
                 <div className="px-4 py-3 flex justify-between items-center">
                   <p
-                    className={`${bebas.className} text-xl tracking-wider`}
+                    className={`${bebas.className} type-heading text-xl tracking-wider`}
                     style={goldText}
                   >
-                    {v.title}
+                    <T>{v.title}</T>
                   </p>
                   <p
-                    className={`${mono.className} text-xs`}
+                    className={`${mono.className} type-copy text-xs`}
                     style={{ color: "rgba(255,200,50,0.4)" }}
                   >
                     {v.date}
@@ -161,17 +155,15 @@ export default function Vlog() {
         <div className="w-full flex flex-col gap-6">
           <div className="flex items-center justify-between">
             <p
-              className={`${mono.className} text-xs tracking-[0.3em] uppercase`}
+              className={`${mono.className} type-copy text-xs tracking-[0.3em] uppercase`}
               style={{ color: "rgba(255,200,50,0.5)" }}
-            >
-              // posts
-            </p>
+            ><T>{"// posts"}</T></p>
             <div className="flex gap-2">
               {tags.map((tag) => (
                 <button
                   key={tag}
                   onClick={() => setActiveTag(tag)}
-                  className={`${mono.className} text-xs px-3 py-1 rounded tracking-widest transition-all duration-200`}
+                  className={`${mono.className} type-copy text-xs px-3 py-1 rounded tracking-widest transition-all duration-200`}
                   style={{
                     border: "1px solid",
                     borderColor:
@@ -184,13 +176,13 @@ export default function Vlog() {
                         : "transparent",
                   }}
                 >
-                  {tag}
+                  <T>{tag}</T>
                 </button>
               ))}
             </div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
+          <div className="vlog-grid grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
             {filtered.map((post, i) => (
               <div
                 key={i}
@@ -211,27 +203,27 @@ export default function Vlog() {
               >
                 <div className="flex justify-between items-center">
                   <span
-                    className={`${mono.className} text-xs px-2 py-0.5 rounded`}
+                    className={`${mono.className} type-copy text-xs px-2 py-0.5 rounded`}
                     style={{
                       border: "1px solid rgba(255,180,0,0.3)",
                       color: "#ffb300",
                       background: "rgba(255,180,0,0.08)",
                     }}
                   >
-                    {post.tag}
+                    <T>{post.tag}</T>
                   </span>
                   <span
-                    className={`${mono.className} text-xs`}
+                    className={`${mono.className} type-copy text-xs`}
                     style={{ color: "rgba(255,200,50,0.4)" }}
                   >
                     {post.date}
                   </span>
                 </div>
                 <h2
-                  className={`${bebas.className} text-2xl tracking-wider`}
+                  className={`${bebas.className} type-heading text-2xl tracking-wider`}
                   style={goldText}
                 >
-                  {post.title}
+                  <T>{post.title}</T>
                 </h2>
                 <div
                   className="w-8 h-px"
@@ -241,10 +233,10 @@ export default function Vlog() {
                   }}
                 />
                 <p
-                  className={`${mono.className} text-xs leading-relaxed`}
+                  className={`${mono.className} type-copy text-xs leading-relaxed`}
                   style={{ color: "rgba(255,200,50,0.55)" }}
                 >
-                  {post.body}
+                  <T>{post.body}</T>
                 </p>
               </div>
             ))}

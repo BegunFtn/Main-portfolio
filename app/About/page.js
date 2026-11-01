@@ -1,7 +1,9 @@
 "use client";
 
-import LuxuryRoyalBackground from "../components/Luxuryroyalbackground";
-import MatrixRain from "../components/MatrixRain";
+import { T } from "../components/i18n/LanguageProvider";
+import "./about.css";
+
+import PortfolioBackground from "../components/backgrounds/PortfolioBackground";
 import { Bebas_Neue, Share_Tech_Mono } from "next/font/google";
 import Link from "next/link";
 import Image from "next/image";
@@ -15,7 +17,7 @@ const hobbies = [
   { label: "Code", href: "/Code" },
   { label: "Game", href: "/Gaming" },
   { label: "Anime", href: "/Anime" },
-  { label: "Travel", href: null },
+  { label: "Travel", href: "/Travel" },
   { label: "Cook", href: null },
   { label: "Music", href: null },
   { label: "Sports", href: null },
@@ -53,8 +55,8 @@ export default function About() {
   };
 
   return (
-    <main className="relative text-white flex items-center justify-center min-h-screen overflow-hidden px-4 py-10 md:py-8">
-      <LuxuryRoyalBackground/>
+    <main className="about-page relative text-white flex items-center justify-center min-h-screen overflow-hidden px-4 py-10 md:py-8">
+      <PortfolioBackground/>
 
       <div
         className="absolute inset-0 z-[1] pointer-events-none"
@@ -64,21 +66,19 @@ export default function About() {
         }}
       />
 
-      <div className="relative z-10 flex flex-col xl:flex-row items-center xl:items-start gap-6 w-full max-w-[1150px] pt-10">
+      <div className="about-layout relative z-10 flex flex-col xl:flex-row items-center xl:items-start gap-6 w-full max-w-[1150px] pt-10">
         {/* ── LEFT: Hobbies ── */}
-        <div className="flex flex-col gap-4 w-full xl:w-[200px] xl:shrink-0 order-2 xl:order-1 pt-20">
+        <div className="about-hobbies flex flex-col gap-4 w-full xl:w-[200px] xl:shrink-0 order-2 xl:order-1 pt-20">
           <p
-            className={`${bebas.className} text-2xl tracking-widest`}
+            className={`${bebas.className} type-heading text-2xl tracking-widest`}
             style={goldText}
-          >
-            Hobbies
-          </p>
+          ><T>{"Hobbies"}</T></p>
           <ul className="flex flex-col gap-2">
             {hobbies.map(({ label, href }) => {
               const inner = (
                 <li
                   key={label}
-                  className={`${mono.className} text-sm flex items-center gap-2 transition-all duration-200 cursor-pointer group`}
+                  className={`${mono.className} type-copy text-sm flex items-center gap-2 transition-all duration-200 cursor-pointer group`}
                   style={goldMuted}
                 >
                   <span
@@ -91,15 +91,13 @@ export default function About() {
                     className="group-hover:translate-x-1 transition-all duration-200"
                     style={goldMuted}
                   >
-                    {label}
+                    <T>{label}</T>
                   </span>
                   {!href && (
                     <span
-                      className={`${mono.className} text-[9px] tracking-widest ml-auto`}
+                      className={`${mono.className} type-copy text-[9px] tracking-widest ml-auto`}
                       style={{ color: "rgba(255,200,50,0.3)" }}
-                    >
-                      SOON
-                    </span>
+                    ><T>{"SOON"}</T></span>
                   )}
                 </li>
               );
@@ -116,39 +114,34 @@ export default function About() {
             })}
           </ul>
           <div
-            className="mt-2 p-3 rounded"
+            className="about-note mt-2 p-3 rounded"
             style={{
               border: "1px solid rgba(255,200,50,0.15)",
               background: "rgba(255,180,0,0.04)",
             }}
           >
-            <p className={`${mono.className} text-xs`} style={goldFaint}>
-              P.S.
-            </p>
+            <p className={`${mono.className} type-copy text-xs`} style={goldFaint}><T>{"P.S."}</T></p>
             <p
-              className={`${mono.className} text-xs mt-1`}
+              className={`${mono.className} type-copy text-xs mt-1`}
               style={{ ...goldDim, lineHeight: 1.6 }}
-            >
-              Click a hobby to learn more!
-            </p>
+            ><T>{"Click a hobby to learn more!"}</T></p>
           </div>
         </div>
 
         {/* ── CENTER ── */}
-        <div className="flex flex-col items-center flex-1 w-full order-1 xl:order-2">
+        <div className="about-center flex flex-col items-center flex-1 w-full order-1 xl:order-2">
           <h1
-            className={`${bebas.className} text-4xl md:text-5xl tracking-widest mb-5`}
+            className={`type-page-title ${bebas.className} type-heading text-4xl md:text-5xl tracking-widest mb-5`}
             style={{ ...goldText, letterSpacing: "0.12em" }}
-          >
-            About Me
-          </h1>
-          <div className="relative w-full max-w-[520px]">
+          ><T>{"About Me"}</T></h1>
+          <div className="about-profile-card relative w-full max-w-[520px]">
             <Image
-              src="/heyP.png"
-              alt="Begun Khaesel"
+              src="/portraits/about-portrait.png"
+              alt="Begun Ganbold"
               width={520}
               height={420}
-              className="rounded-t-2xl w-full object-cover"
+              className="about-profile-image rounded-t-2xl w-full object-cover"
+              sizes="(min-width: 1000px) 520px, (min-width: 640px) 600px, 100vw"
               style={{
                 border: "1px solid rgba(255,200,50,0.25)",
                 borderBottom: "none",
@@ -157,7 +150,7 @@ export default function About() {
               }}
             />
             <div
-              className="rounded-b-2xl px-5 py-4"
+              className="about-bio rounded-b-2xl px-5 py-4"
               style={{
                 background: "rgba(6,3,15,0.92)",
                 backdropFilter: "blur(12px)",
@@ -166,38 +159,29 @@ export default function About() {
               }}
             >
               <p
-                className={`${mono.className} text-sm leading-relaxed`}
+                className={`${mono.className} type-copy text-sm leading-relaxed`}
                 style={{ color: "rgba(255,220,150,0.8)" }}
               >
-                Hi, I&apos;m{" "}
-                <span style={{ color: "#ffb300" }}>Begun Khaesel</span> — an
-                aspiring web developer passionate about technology and modern
-                web design. I enjoy creating interactive websites using HTML,
-                CSS, JavaScript, React, and Next.js. Constantly learning with
-                the goal of becoming a professional developer in Mongolia.
-              </p>
+                <T>{"Hi, I'm"}</T>{" "}
+                <span style={{ color: "#ffb300" }}><T>{"Begun"}</T>{" "}<T>{"Ganbold"}</T></span>{" "}<T>{"— an aspiring web developer passionate about technology and modern web design. I enjoy creating interactive websites using HTML, CSS, JavaScript, React, and Next.js. Constantly learning with the goal of becoming a professional developer in Mongolia."}</T></p>
             </div>
           </div>
         </div>
 
         {/* ── RIGHT: More About Me ── */}
-        <div className="flex flex-col gap-5 w-full xl:w-[220px] xl:shrink-0 order-3 xl:order-3 pt-20">
+        <div className="about-details flex flex-col gap-5 w-full xl:w-[220px] xl:shrink-0 order-3 xl:order-3 pt-20">
           <p
-            className={`${bebas.className} text-2xl tracking-widest`}
+            className={`${bebas.className} type-heading text-2xl tracking-widest`}
             style={goldText}
-          >
-            More About Me
-          </p>
+          ><T>{"More About Me"}</T></p>
           <div>
             <p
-              className={`${mono.className} text-xs tracking-[0.2em] mb-2`}
+              className={`${mono.className} type-copy text-xs tracking-[0.2em] mb-2`}
               style={goldFaint}
-            >
-              ACADEMY
-            </p>
+            ><T>{"ACADEMY"}</T></p>
             <Link href="https://academy.erxes.mn/" target="_blank">
               <p
-                className={`${mono.className} text-sm flex items-center gap-2 transition-colors duration-200`}
+                className={`${mono.className} type-copy text-sm flex items-center gap-2 transition-colors duration-200`}
                 style={goldMuted}
               >
                 <span style={{ ...goldDim, fontSize: 10 }}>◆</span>
@@ -207,23 +191,21 @@ export default function About() {
           </div>
           <div>
             <p
-              className={`${mono.className} text-xs tracking-[0.2em] mb-3`}
+              className={`${mono.className} type-copy text-xs tracking-[0.2em] mb-3`}
               style={goldFaint}
-            >
-              CORE SKILLS
-            </p>
-            <div className="flex flex-col gap-3">
+            ><T>{"CORE SKILLS"}</T></p>
+            <div className="about-skills flex flex-col gap-3">
               {skills.map(({ name, pct }) => (
                 <div key={name}>
-                  <div className="flex justify-between mb-1">
+                  <div className="about-skill-label flex justify-between mb-1">
                     <span
-                      className={`${mono.className} text-xs`}
+                      className={`${mono.className} type-copy text-xs`}
                       style={goldMuted}
                     >
                       {name}
                     </span>
                     <span
-                      className={`${mono.className} text-xs`}
+                      className={`${mono.className} type-copy text-xs`}
                       style={goldDim}
                     >
                       {pct}%
@@ -249,17 +231,15 @@ export default function About() {
           </div>
           <div>
             <p
-              className={`${mono.className} text-xs tracking-[0.2em] mb-2`}
+              className={`${mono.className} type-copy text-xs tracking-[0.2em] mb-2`}
               style={goldFaint}
-            >
-              CERTIFICATE
-            </p>
+            ><T>{"CERTIFICATE"}</T></p>
             <Image
-              src="/certificate.png"
+              src="/certificates/frontend-development.png"
               alt="Certificate"
               width={200}
               height={140}
-              className="rounded-lg cursor-pointer transition-all duration-200 hover:scale-105 w-full max-w-[200px]"
+              className="about-certificate rounded-lg cursor-pointer transition-all duration-200 hover:scale-105 w-full max-w-[200px]"
               onClick={() => setCertOpen(true)}
               style={{
                 border: "1px solid rgba(255,200,50,0.3)",
@@ -297,7 +277,7 @@ export default function About() {
   onClick={(e) => e.stopPropagation()}
 >
         <Image
-          src="/certificate.png"
+          src="/certificates/frontend-development.png"
           alt="Certificate"
           width={800}
           height={560}
@@ -323,7 +303,7 @@ export default function About() {
       {/* ── Coming Soon Toast ── */}
       {toast && (
         <div
-          className={`${mono.className} fixed top-6 left-1/2 -translate-x-1/2 z-50 flex items-center gap-3 px-5 py-3 rounded-lg text-sm pointer-events-none`}
+          className={`${mono.className} type-copy fixed top-6 left-1/2 -translate-x-1/2 z-50 flex items-center gap-3 px-5 py-3 rounded-lg text-sm pointer-events-none`}
           style={{
             background: "rgba(6,3,15,0.97)",
             border: "1px solid rgba(255,200,50,0.4)",
@@ -335,8 +315,8 @@ export default function About() {
           }}
         >
           <span style={{ color: "rgba(255,200,50,0.4)", fontSize: 10 }}>◆</span>
-          <span style={{ color: "rgba(255,210,80,1)" }}>{toast}</span>
-          <span>— coming soon</span>
+          <span style={{ color: "rgba(255,210,80,1)" }}><T>{toast}</T></span>
+          <span><T>{"— coming soon"}</T></span>
           <style>{`
             @keyframes toastIn {
               from { opacity: 0; transform: translateX(-50%) translateY(-10px); }

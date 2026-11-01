@@ -1,0 +1,145 @@
+.travel-page { --travel-gold: #edd18d; position: relative; isolation: isolate; min-height: 100svh; padding: 104px 28px 24px; background: #06030f; color: #fff8e9; font-family: var(--font-cyrillic-body), sans-serif; }
+.travel-page button { cursor: pointer; }
+.travel-page button, .travel-page a { -webkit-tap-highlight-color: transparent; }
+.travel-page :is(button, a):focus-visible, .travel-stage:focus-visible { outline: 2px solid #ffe1a1; outline-offset: 5px; }
+.travel-page-top { position: relative; z-index: 1; display: flex; align-items: center; justify-content: space-between; gap: 20px; max-width: 1360px; margin: 0 auto 13px; color: #c1ab7f; }
+.travel-page-top a { display: inline-flex; align-items: center; gap: 10px; min-height: 36px; font-size: 11px; }
+.travel-page-top > span { font: 8px var(--font-geist-mono), monospace; letter-spacing: 1.8px; }
+.travel-stage { position: relative; z-index: 1; display: flex; flex-direction: column; width: min(1360px, 100%); min-height: 520px; height: clamp(520px, calc(100svh - 210px), 740px); margin: auto; border: 1px solid #d6b46766; border-radius: 22px; isolation: isolate; background: #17221e; box-shadow: 0 24px 80px #0005, 0 0 50px #d6b46708; }
+.travel-scenery, .travel-shade { position: absolute; inset: 0; overflow: hidden; border-radius: 21px; z-index: -1; pointer-events: none; }
+.travel-scenery-layer { position: absolute; inset: 0; }
+.travel-scenery img { object-fit: cover; object-position: center; }
+.travel-shade { background: linear-gradient(90deg, #07110fc9 0%, #07110f65 40%, #07110f10 75%), linear-gradient(0deg, #08100fd9 0%, #08100f00 60%, #08100f4d 100%); }
+.travel-stage-header { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 30px 38px 0; }
+.travel-wordmark { display: flex; gap: 10px; align-items: center; color: #ffe9b0; }
+.travel-wordmark > span { font-size: 15px; font-weight: 750; letter-spacing: 2.2px; }
+.travel-wordmark > span > span { display: block; margin-top: 5px; font-size: 8px; letter-spacing: .4px; font-weight: 400; color: #f4ead0bf; }
+.travel-saved-wrap { position: relative; }
+.travel-saved-button { display: flex; align-items: center; gap: 9px; min-height: 38px; padding: 9px 13px; border: 1px solid #fff0c63d; border-radius: 5px; background: #09130f70; backdrop-filter: blur(12px); font-size: 10px; color: #fff1ce; }
+.travel-saved-button:hover { background: #09130fc9; border-color: #edd18d; }
+.travel-saved-count { padding-left: 10px; border-left: 1px solid #fff2; font-family: var(--font-geist-mono), monospace; font-size: 9px; }
+.travel-saved-panel { position: absolute; z-index: 8; right: 0; top: calc(100% + 12px); width: min(270px, calc(100vw - 72px)); padding: 16px; background: #100e17f5; border: 1px solid #d6b46760; border-radius: 10px; box-shadow: 0 20px 40px #0005; }
+.travel-saved-panel > div { display: flex; align-items: center; justify-content: space-between; font-size: 12px; color: #edd18d; }
+.travel-saved-panel > div > button { padding: 5px; }
+.travel-saved-panel > p { margin-top: 12px; font-size: 11px; line-height: 1.8; color: #cbbf9c; }
+.travel-saved-item { display: flex; align-items: center; gap: 10px; width: 100%; padding-block: 10px; text-align: left; border-bottom: 1px solid #edd18d15; font-size: 12px; }
+.travel-saved-item:last-child { border-bottom: 0; padding-bottom: 0; }
+.travel-saved-item img { width: 48px; height: 38px; object-fit: cover; border-radius: 4px; }
+.travel-saved-item > span { flex: 1; }
+.travel-index { position: absolute; left: 24px; top: 45%; transform: translateY(-35%); display: grid; gap: 7px; }
+.travel-index::before { content: ''; width: 1px; height: calc(100% - 28px); background: #fff3; position: absolute; left: 16px; top: 14px; z-index: -1; }
+.travel-index button { display: grid; place-items: center; width: 33px; height: 33px; font: 8px var(--font-geist-mono), monospace; color: #201c11; }
+.travel-index button span { display: grid; place-items: center; width: 5px; height: 5px; border-radius: 50%; background: #fff8; transition: width .3s, height .3s, background .3s; }
+.travel-index button[aria-current=true] span { width: 28px; height: 28px; background: #f5dda2; box-shadow: 0 0 20px #f5dda240; }
+.travel-composition { flex: 1; min-height: 0; display: grid; grid-template-columns: minmax(0, .95fr) minmax(0, 1.1fr); align-items: center; gap: 40px; padding: 45px 38px 26px 86px; }
+.travel-story { min-width: 0; padding-block: 12px; }
+.travel-eyebrow { font: 8px var(--font-geist-mono), monospace; letter-spacing: 1.8px; line-height: 1.6; color: #f6e3b6; }
+.travel-story > .travel-eyebrow { margin-bottom: 30px; }
+.travel-eyebrow > span { color: #fff8; margin-left: 12px; }
+.travel-region { display: flex; align-items: center; gap: 7px; min-height: 18px; margin-bottom: 9px; font-size: 9px; font-weight: 550; letter-spacing: 1.4px; color: #fff7dcde; }
+.travel-story h2 { width: max-content; max-width: 100%; font: 600 clamp(45px, 5.9vw, 84px)/1.08 var(--font-cyrillic-display), sans-serif; text-transform: uppercase; letter-spacing: -.025em; color: #fff9e8; text-shadow: 0 3px 24px #0003; overflow-wrap: anywhere; }
+.travel-description { max-width: 360px; min-height: 84px; margin-top: 20px; color: #f8f2e4; font-size: 12px; line-height: 1.9; text-shadow: 0 1px 8px #0005; }
+.travel-story-actions { display: flex; align-items: center; gap: 12px; margin-top: 22px; }
+.travel-explore { display: inline-flex; align-items: center; justify-content: center; gap: 26px; min-height: 46px; padding: 12px 20px; border-block: 1px solid #f2d287; background: linear-gradient(120deg, #f4dea5, #d1ac60); color: #251e12; font-size: 11px; font-weight: 700; transition: box-shadow .2s, filter .2s; }
+.travel-explore:hover { box-shadow: 0 0 24px #e4bf6c4d; filter: brightness(1.1); }
+.travel-save-current { display: grid; place-items: center; width: 44px; height: 44px; border: 1px solid #fff4; color: #fff2cb; background: #0a160c42; border-radius: 50%; }
+.travel-save-current[aria-pressed=true] { color: #201b0c; background: #f4d99b; border-color: #f4d99b; }
+.travel-save-current[aria-pressed=true] svg, .travel-preview-save[aria-pressed=true] svg, .travel-detail-save[aria-pressed=true] svg { fill: currentColor; }
+.travel-preview-area { min-width: 0; }
+.travel-preview-area > p { margin-bottom: 16px; }
+.travel-preview-cards { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; align-items: center; }
+.travel-preview { position: relative; height: clamp(220px, 27vw, 340px); min-width: 0; }
+.travel-preview:nth-child(2) { height: clamp(200px, 24vw, 306px); }
+.travel-preview:nth-child(3) { height: clamp(180px, 22vw, 278px); }
+.travel-preview-select { position: relative; width: 100%; height: 100%; display: block; overflow: hidden; border-radius: 10px; border: 1px solid #fff5; text-align: left; box-shadow: 0 16px 32px #0004; }
+.travel-preview-select::after { content: ''; position: absolute; inset: 0; background: linear-gradient(0deg, #08100fda, transparent 65%); }
+.travel-preview-select > img { object-fit: cover; transition: transform .6s; }
+.travel-preview-select:hover > img { transform: scale(1.07); }
+.travel-preview-caption { position: absolute; z-index: 1; bottom: 17px; left: 14px; right: 12px; }
+.travel-preview-caption > small { display: block; color: #fff6d7bb; font-size: 6px; letter-spacing: 1px; line-height: 1.5; }
+.travel-preview-caption > strong { display: block; margin-top: 5px; color: #fff5dd; font: 500 clamp(17px, 1.6vw, 23px)/1.2 var(--font-cyrillic-display), sans-serif; overflow-wrap: anywhere; }
+.travel-preview-caption > span { display: block; margin-top: 13px; color: #edd18d; }
+.travel-preview-save { position: absolute; display: grid; place-items: center; top: 11px; right: 10px; width: 31px; height: 31px; border-radius: 50%; background: #ffffffe8; color: #4d5146; box-shadow: 0 2px 8px #0001; }
+.travel-preview-save[aria-pressed=true] { background: #f3d595; color: #514020; }
+.travel-stage-footer { display: flex; align-items: center; justify-content: space-between; padding: 0 38px 26px 86px; gap: 20px; }
+.travel-footer-note { font: 7px var(--font-geist-mono), monospace; letter-spacing: 1.4px; color: #f5e4baad; }
+.travel-controls { display: flex; gap: 8px; }
+.travel-controls button { display: grid; place-items: center; height: 36px; width: 36px; border-radius: 50%; border: 1px solid #fff3; color: #fff2ce; background: #ffffff12; backdrop-filter: blur(12px); transition: background .2s; }
+.travel-controls button:hover { background: #f1d494; color: #302513; }
+.travel-page-number { display: flex; align-items: center; gap: 14px; font: 9px var(--font-geist-mono), monospace; color: #fff8; }
+.travel-page-number strong { font-weight: 500; color: #ffe2a1; }
+.travel-page-number span:nth-child(2) { display: block; width: 64px; height: 1px; background: #ffefc64d; }
+.travel-afterword { position: relative; z-index: 1; display: flex; align-items: center; justify-content: space-between; gap: 16px; max-width: 1360px; margin: 14px auto 0; font-size: 9px; color: #b8a47f; line-height: 1.6; }
+.travel-afterword > span { font-size: 8px; color: #897958; }
+.travel-afterword a:hover { color: #f3d899; }
+.travel-dialog { position: fixed; inset: 0; width: min(680px, calc(100vw - 36px)); max-height: 90svh; margin: auto; padding: 0; overflow: auto; border: 1px solid #d6b46770; border-radius: 16px; background: #100c17; color: #f2e4c6; box-shadow: 0 30px 100px #0008; }
+.travel-dialog::backdrop { background: #03020bcc; backdrop-filter: blur(8px); }
+.travel-dialog-close { position: absolute; z-index: 2; top: 14px; right: 14px; display: grid; place-items: center; width: 38px; height: 38px; border-radius: 50%; background: #09080dd9; color: #ffe5a6; border: 1px solid #edd18d66; }
+.travel-dialog-image { position: relative; height: 250px; }
+.travel-dialog-image img { object-fit: cover; }
+.travel-dialog-copy { padding: 28px 30px 32px; }
+.travel-dialog h2 { margin-top: 9px; font: 500 38px/1.2 var(--font-cyrillic-display), sans-serif; color: #ffe9af; }
+.travel-dialog-copy > p:not(.travel-eyebrow) { margin-top: 15px; font-size: 13px; line-height: 1.9; color: #ccbea2; }
+.travel-dialog ul { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 20px; list-style: none; padding: 0; }
+.travel-dialog li { border: 1px solid #edd18d30; padding: 6px 10px; border-radius: 20px; font-size: 10px; color: #d5bc88; }
+.travel-detail-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 16px; margin-top: 28px; }
+.travel-detail-save { display: inline-flex; align-items: center; gap: 8px; min-height: 44px; padding: 8px; font-size: 11px; color: #edd18d; }
+@media (max-width: 1150px) and (min-width: 761px) {
+  .travel-composition { grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); gap: 32px; }
+  .travel-preview-cards { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .travel-preview:last-child { display: none; }
+  .travel-story h2 { font-size: clamp(40px, 6.2vw, 68px); }
+}
+@media (max-width: 760px) {
+  .travel-page { padding: 94px 16px 24px; }
+  .travel-page-top > span { font-size: 6px; letter-spacing: 1px; }
+  .travel-stage { height: auto; min-height: 0; }
+  .travel-stage-header { padding: 23px 22px 0; }
+  .travel-wordmark > span { font-size: 12px; letter-spacing: 1.4px; }
+  .travel-wordmark > span > span { font-size: 7px; }
+  .travel-saved-button { gap: 7px; padding: 8px 10px; font-size: 9px; }
+  .travel-saved-count { padding-left: 7px; }
+  .travel-index { display: none; }
+  .travel-composition { display: flex; flex-direction: column; align-items: stretch; padding: 40px 22px 24px; gap: 30px; }
+  .travel-story { padding: 0; }
+  .travel-story > .travel-eyebrow { margin-bottom: 22px; }
+  .travel-story h2 { font-size: clamp(43px, 10vw, 72px); }
+  .travel-description { min-height: 0; max-width: 460px; font-size: 12px; margin-top: 15px; }
+  .travel-story-actions { margin-top: 20px; }
+  .travel-preview-area > p { font-size: 7px; margin-bottom: 12px; }
+  .travel-preview-cards { display: flex; align-items: stretch; gap: 12px; overflow-x: auto; padding: 4px 4px 12px; margin: -4px -4px -12px; scroll-snap-type: x mandatory; scrollbar-width: thin; scrollbar-color: #edd18d70 transparent; }
+  .travel-preview:nth-child(n) { flex: 1 0 130px; height: 194px; scroll-snap-align: start; }
+  .travel-preview-caption > strong { font-size: 20px; }
+  .travel-preview-caption > small { font-size: 6px; }
+  .travel-stage-footer { padding: 0 22px 22px; gap: 12px; }
+  .travel-footer-note { display: none; }
+  .travel-page-number span:nth-child(2) { width: 36px; }
+  .travel-shade { background: linear-gradient(90deg, #07110fb0, #07110f35), linear-gradient(0deg, #08100fdf, #08100f20 65%, #08100f4d); }
+  .travel-afterword { align-items: flex-start; flex-direction: column; gap: 6px; }
+}
+@media (max-width: 380px) {
+  .travel-stage-header { padding-inline: 17px; }
+  .travel-wordmark { gap: 7px; }
+  .travel-wordmark > svg { width: 21px; }
+  .travel-wordmark > span > span { max-width: 110px; }
+  .travel-saved-button > span:not(.travel-saved-count) { display: none; }
+  .travel-composition { padding-inline: 17px; }
+  .travel-explore { gap: 18px; padding-inline: 16px; }
+  .travel-dialog-copy { padding: 23px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .travel-page *, .travel-page *::after { transition: none !important; animation: none !important; }
+}
+
+.travel-dream-heading { position: relative; z-index: 1; display: flex; align-items: end; justify-content: space-between; gap: 24px; width: min(1360px, 100%); margin: 15px auto 24px; }
+.travel-dream-heading .travel-eyebrow { color: #ba9e66; }
+.travel-dream-heading h1 { margin-top: 10px; font: 500 clamp(27px, 3.3vw, 42px)/1.25 var(--font-cyrillic-display), sans-serif; color: #ffe6a3; text-shadow: 0 0 25px #ffb30028; }
+.travel-dream-heading > a { display: inline-flex; align-items: center; gap: 16px; min-height: 40px; font-size: 11px; color: #c5ac76; }
+.travel-stage { height: clamp(520px, calc(100svh - 285px), 740px); }
+.travel-diary { scroll-margin-top: 110px; }
+@media (max-width: 760px) {
+ .travel-dream-heading { margin-top: 18px; margin-bottom: 22px; align-items: start; flex-direction: column; gap: 5px; }
+ .travel-dream-heading h1 { font-size: 29px; }
+ .travel-dream-heading > a { font-size: 10px; }
+ .travel-stage { height: auto; }
+}

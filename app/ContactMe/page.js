@@ -1,6 +1,8 @@
 "use client";
 
-import LuxuryRoyalBackground from "../components/Luxuryroyalbackground";
+import { T, useLanguage } from "../components/i18n/LanguageProvider";
+
+import PortfolioBackground from "../components/backgrounds/PortfolioBackground";
 import { Bebas_Neue, Share_Tech_Mono } from "next/font/google";
 import Link from "next/link";
 import Image from "next/image";
@@ -18,6 +20,7 @@ const goldText = {
 };
 
 export default function ContactMe() {
+  const { t } = useLanguage();
   const [sent, setSent] = useState(false);
   const [loading, setLoading] = useState(false);
   const formRef = useRef();
@@ -53,8 +56,8 @@ export default function ContactMe() {
   };
 
   return (
-    <main className="relative flex justify-center items-center min-h-screen overflow-hidden px-4 py-10 md:py-8">
-      <LuxuryRoyalBackground />
+    <main className="contact-page relative flex justify-center items-center min-h-screen overflow-hidden px-4 py-10 md:py-8">
+      <PortfolioBackground />
 
       <div
         className="absolute inset-0 z-[1] pointer-events-none"
@@ -65,7 +68,7 @@ export default function ContactMe() {
       />
 
       <div
-        className="relative z-10 flex flex-col md:flex-row justify-evenly items-center rounded-2xl w-full max-w-[980px] mt-8 gap-6 md:gap-0 px-4 py-8 md:px-0 md:py-0 md:h-auto xl:h-[620px]"
+        className="contact-card relative z-10 flex flex-col md:flex-row justify-evenly items-center rounded-2xl w-full max-w-[980px] mt-8 gap-6 md:gap-0 px-4 py-8 md:px-0 md:py-0 md:h-auto xl:h-[620px]"
         style={{
           background: "rgba(0,0,0,0.55)",
           backdropFilter: "blur(8px)",
@@ -79,7 +82,7 @@ export default function ContactMe() {
         <span className="absolute bottom-4 right-4 w-5 h-5 border-b border-r border-yellow-400/50" />
 
         <div
-          className="relative w-full max-w-[380px] shrink-0 rounded-2xl overflow-hidden"
+          className="contact-portrait relative w-full max-w-[380px] shrink-0 rounded-2xl overflow-hidden"
           style={{
             aspectRatio: "380 / 540",
             border: "1px solid rgba(255,200,50,0.2)",
@@ -87,7 +90,7 @@ export default function ContactMe() {
           }}
         >
           <Image
-            src="/ya.png"
+            src="/portraits/contact-portrait.png"
             alt="Contact"
             fill
             sizes="(max-width: 768px) 100vw, 380px"
@@ -110,11 +113,9 @@ export default function ContactMe() {
             }}
           >
             <h2
-              className={`${bebas.className} text-3xl tracking-widest`}
+              className={`${bebas.className} type-heading text-3xl tracking-widest`}
               style={goldText}
-            >
-              Hello!
-            </h2>
+            ><T>{"Hello!"}</T></h2>
           </div>
 
           <div
@@ -130,7 +131,7 @@ export default function ContactMe() {
               target="_blank"
             >
               <p
-                className={`${mono.className} text-xs leading-relaxed hover:opacity-100 transition-opacity duration-200`}
+                className={`${mono.className} type-copy text-xs leading-relaxed hover:opacity-100 transition-opacity duration-200`}
                 style={{ color: "rgba(255,210,80,0.8)" }}
               >
                 📍 WXFF+8V9 Цайз, BZD - 40 khoroo, Ulaanbaatar 13321
@@ -138,7 +139,7 @@ export default function ContactMe() {
             </Link>
             <Link href="tel:+97689087052">
               <p
-                className={`${mono.className} text-xs hover:opacity-100 transition-opacity duration-200`}
+                className={`${mono.className} type-copy text-xs hover:opacity-100 transition-opacity duration-200`}
                 style={{ color: "rgba(255,210,80,0.8)" }}
               >
                 📞 +97689087052
@@ -148,12 +149,12 @@ export default function ContactMe() {
               {[
                 {
                   href: "https://github.com/BegunFtn",
-                  img: "/github.png",
+                  img: "/social/github.png",
                   label: "GitHub",
                 },
                 {
                   href: "https://www.instagram.com/begun4h/",
-                  img: "/instagram.png",
+                  img: "/social/instagram.png",
                   label: "Instagram",
                 },
               ].map(({ href, img, label }) => (
@@ -177,20 +178,16 @@ export default function ContactMe() {
           </div>
         </div>
 
-        <div className="flex flex-col justify-center w-full max-w-[460px] gap-4 px-2">
+        <div className="contact-copy flex flex-col justify-center w-full max-w-[460px] gap-4 px-2">
           <div>
             <h1
-              className={`${bebas.className} text-4xl tracking-widest`}
+              className={`type-page-title ${bebas.className} type-heading text-4xl tracking-widest`}
               style={goldText}
-            >
-              Contact Me
-            </h1>
+            ><T>{"Contact Me"}</T></h1>
             <p
-              className={`${mono.className} text-base mt-1`}
+              className={`${mono.className} type-copy text-base mt-1`}
               style={{ color: "rgba(255,210,80,0.7)" }}
-            >
-              Let&apos;s Build Something Great
-            </p>
+            ><T>{"Let's Build Something Great"}</T></p>
           </div>
 
           <div
@@ -201,14 +198,9 @@ export default function ContactMe() {
           />
 
           <p
-            className={`${mono.className} text-xs leading-relaxed`}
+            className={`${mono.className} type-copy text-xs leading-relaxed`}
             style={{ color: "rgba(255,200,50,0.5)" }}
-          >
-            I&apos;m always excited to connect with people building interesting
-            things. Whether it&apos;s a collaboration, a project, or a position
-            on your team — feel free to reach out. Let&apos;s turn ideas into
-            reality.
-          </p>
+          ><T>{"I'm always excited to connect with people building interesting things. Whether it's a collaboration, a project, or a position on your team — feel free to reach out. Let's turn ideas into reality."}</T></p>
 
           <form
             ref={formRef}
@@ -217,18 +209,16 @@ export default function ContactMe() {
           >
             <div>
               <label
-                className={`${mono.className} text-xs tracking-[0.2em] block mb-1`}
+                className={`${mono.className} type-copy text-xs tracking-[0.2em] block mb-1`}
                 style={{ color: "rgba(255,200,50,0.7)" }}
-              >
-                EMAIL
-              </label>
+              ><T>{"EMAIL"}</T></label>
               <input
                 type="email"
                 name="from_email"
                 placeholder="your@email.com"
                 required
                 onKeyDown={handleKeyDown}
-                className={`${mono.className} w-full text-sm px-4 py-2 rounded outline-none transition-all duration-200`}
+                className={`${mono.className} type-copy w-full text-sm px-4 py-2 rounded outline-none transition-all duration-200`}
                 style={{
                   background: "rgba(255,180,0,0.05)",
                   border: "1px solid rgba(255,200,50,0.2)",
@@ -244,18 +234,16 @@ export default function ContactMe() {
             </div>
             <div>
               <label
-                className={`${mono.className} text-xs tracking-[0.2em] block mb-1`}
+                className={`${mono.className} type-copy text-xs tracking-[0.2em] block mb-1`}
                 style={{ color: "rgba(255,200,50,0.7)" }}
-              >
-                YOUR NAME
-              </label>
+              ><T>{"YOUR NAME"}</T></label>
               <input
                 type="text"
                 name="from_name"
-                placeholder="Name"
+                placeholder={t("Name")}
                 required
                 onKeyDown={handleKeyDown}
-                className={`${mono.className} w-full text-sm px-4 py-2 rounded outline-none transition-all duration-200`}
+                className={`${mono.className} type-copy w-full text-sm px-4 py-2 rounded outline-none transition-all duration-200`}
                 style={{
                   background: "rgba(255,180,0,0.05)",
                   border: "1px solid rgba(255,200,50,0.2)",
@@ -271,17 +259,15 @@ export default function ContactMe() {
             </div>
             <div>
   <label
-    className={`${mono.className} text-xs tracking-[0.2em] block mb-1`}
+    className={`${mono.className} type-copy text-xs tracking-[0.2em] block mb-1`}
     style={{ color: "rgba(255,200,50,0.7)" }}
-  >
-    MESSAGE
-  </label>
+  ><T>{"MESSAGE"}</T></label>
   <textarea
     name="message"
-    placeholder="Text here..."
+    placeholder={t("Text here...")}
     required
     rows={4}
-    className={`${mono.className} w-full text-sm px-4 py-2 rounded outline-none transition-all duration-200 resize-none`}
+    className={`${mono.className} type-copy w-full text-sm px-4 py-2 rounded outline-none transition-all duration-200 resize-none`}
     style={{
       background: "rgba(255,180,0,0.05)",
       border: "1px solid rgba(255,200,50,0.2)",
@@ -294,7 +280,7 @@ export default function ContactMe() {
             <button
               type="submit"
               disabled={loading}
-              className={`${mono.className} text-sm tracking-[0.2em] uppercase py-2 mt-1 transition-all duration-300`}
+              className={`${mono.className} type-copy text-sm tracking-[0.2em] uppercase py-2 mt-1 transition-all duration-300`}
               style={{
                 background: sent ? "rgba(255,180,0,0.2)" : "transparent",
                 border: "1px solid rgba(255,180,0,0.5)",
@@ -316,7 +302,7 @@ export default function ContactMe() {
                 }
               }}
             >
-              {loading ? "Sending..." : sent ? "✓ Sent!" : "[ Send Message ]"}
+              <T>{loading ? "Sending..." : sent ? "✓ Sent!" : "[ Send Message ]"}</T>
             </button>
           </form>
         </div>
